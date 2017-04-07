@@ -15,14 +15,6 @@ try:
     XML = open(Result_XML)
 except IOError:
     sys.exit("The file does not exist, exiting gracefully")
-##f = open(Result_XML,'r')
-##x = f.readlines()
-##y = x[:x.index('\t</partition-and-timing-settings>\n')+1]
-##f2 = open(Result_XML, 'w')
-##for z in y:
-##    f2.write(str(z))
-##f2.write("</report>")
-##f2.close()
 
 set_num = 0
 tree = ET.parse(Result_XML)
