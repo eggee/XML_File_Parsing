@@ -1,0 +1,1319 @@
+<?xml version="1.0"?>
+<testCase version="4.2.2.68987">
+    <general>
+        <documentation>Automation to build a Link Aggregation Group (lag) on a COT shelf using the craft management session.</documentation>
+    </general>
+    <execution estimatedExecutionTime="34">
+        <parameters version="4.2.2.68987">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <cot_uut_inband_ip>10.13.65.101</cot_uut_inband_ip>
+                    <cisco_port_ch_num pt:description="port-ch &apos;1&apos; is the ten-gig group, port-ch &apos;9&apos; is the one-gig group">1</cisco_port_ch_num>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://PQ_Production_Project/topologies/BBDLC/BBDLC.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="48228b82-c899-4a26-adee-2b63aabcf415" action="comment">
+                    <command>
+                        <body>Front Matter (variable definitions)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="047ce842-4a1b-4f9e-a547-4dc7213ac2e8" action="eval">
+                            <command>
+                                <body>set auc_file_path [tbml property -id BBDLC_Node_1 aucFilePath]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="cc065aed-9563-49a0-8f90-8a742025eaba" action="comment">
+                    <command>
+                        <body>Setup</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Setup">
+                        <description>Use an existing, known functional, TA5000 Testbed capable of Data/Voice and Video traffic. Ensure network connectivity from the COT to Network, with at least two fiber feeds to a Router/Switch capable of setting up &apos;channel-groups&apos; and supporting Link Aggregation Control Protocol (LACP).</description>
+                        <expectedResult>Working test bed aquired.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="179ae18d-5d75-4233-bd55-f72654f66609" action="comment">
+                    <command>
+                        <body>Management Access and Software Logging</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e7913656-185b-411b-ad72-5a9fc4d65df6" action="comment">
+                            <command>
+                                <body>Connect to CSLag COT Craft Port</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="963fa022-8b87-458c-b51c-30f8177474ec" action="open" session="CSLag_COT">
+                                    <command>
+                                        <body>device:BBDLC_N1#Node1_Craft</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                            <completionProperties>
+                                                <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                                                <waitForFirstCharBeforeIdle inherit="false">false</waitForFirstCharBeforeIdle>
+                                            </completionProperties>
+                                        </stepProperties>
+                                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="8610dfc1-4861-442e-bf9e-c6a6d01dc572" action="command" session="CSLag_COT" estimatedStepExecutionTime="0.075">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="e29db683-d99c-47f0-af44-ebfcce462d9b" action="command" session="CSLag_COT" normalOffset="3.723" estimatedStepExecutionTime="0.096">
+                                    <command>
+                                        <body>ADMIN</body>
+                                    </command>
+                                    <postProcessing skipGlobalRules="true"/>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.96" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="a122b483-d5e8-4ce3-a945-5ddd0d1dfef1" action="command" session="CSLag_COT" normalOffset="1.671" estimatedStepExecutionTime="0.939">
+                                    <command>
+                                        <body masked="true">tnBYBiPxnYkJor6ZZIWzzg==</body>
+                                    </command>
+                                    <postProcessing skipGlobalRules="true"/>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.847" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="20d4d8c3-0b53-43a6-8641-0b6a574de51f" action="command" session="CSLag_COT" normalOffset="2.756" estimatedStepExecutionTime="0.682">
+                                    <command>
+                                        <body>en</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.622" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="72bedc25-0b77-4fbd-866f-40af5ef78c14" action="command" session="CSLag_COT">
+                                    <command>
+                                        <body>end</body>
+                                    </command>
+                                    <postProcessing skipGlobalRules="true"/>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="80252025-cee3-4358-894d-9fcf0a58c94e" action="command" session="CSLag_COT">
+                                    <command>
+                                        <body>show clock</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>Current date/time</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 1</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                    <message>{auto_message_true}</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>Couldn&apos;t Login.</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="ExitExecution">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Show Clock">
+                                        <description>Do a &apos;Show Clock&apos; as a means to confirm the management session is &apos;active&apos;.</description>
+                                        <expectedResult>Clock is shown.</expectedResult>
+                                    </qualityCenterStepInfo>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="ca88eee8-aa44-4bc6-8ac1-4006eac6ab14" action="comment">
+                            <command>
+                                <body>Connect to Cisco Router</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="f86c81be-4ff5-431c-99cd-cbe5523b425c" action="open" session="6509E">
+                                    <command>
+                                        <body>device:6509E#Cisco_telnet</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="43a5874a-da75-4199-8965-422bf3c44ebd" action="command" session="6509E" normalOffset="7.097" estimatedStepExecutionTime="0.004">
+                                    <command>
+                                        <body>READONLY</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <lineTerminator inherit="false">SLASH_R</lineTerminator>
+                                        <completionProperties expectedIdleTime="0.475" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="34962950-fe8a-410a-8a05-435919c9478d" action="command" session="6509E" normalOffset="6.265" estimatedStepExecutionTime="0.078">
+                                    <command>
+                                        <body>READONLY</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <lineTerminator inherit="false">SLASH_R</lineTerminator>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="caf1849b-8eaf-4341-a844-1f51d8c05bee" action="command" session="6509E">
+                                    <command>
+                                        <body>show version</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Management CLi">
+                        <description>Establish a management session using the out-of-band ip address, or the Craft port, of the Central Office Terminal (COT) node.
+Do not use the in-band ip since your connection will drop when changing the Default Network Interface (DNI).</description>
+                        <expectedResult>Session established.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="489eb05a-8721-4806-baed-0a242c2e638c" action="comment">
+                    <command>
+                        <body>CONFIG MODE: Craft Sessions &apos;Configuration Mode&apos;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="644986c5-442f-4db8-a8a8-c57314af5010" action="command" session="CSLag_COT">
+                            <command>
+                                <body>config t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b05f47be-e113-44be-a7d8-0dc286cb0278" action="comment">
+                    <command>
+                        <body>Shutdown SM B, Diable the necessary Ports, Enable &apos;link aggregation control protocol&apos; (LACP)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="61b5b37f-c160-4685-ad17-0b677a03b8fe" action="comment">
+                            <command>
+                                <body>Shutdown SM 1/B in order to force 1/A &apos;active&apos; - all provisioning is to be to SM 1/A</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="848d42b9-2707-41a1-a2f8-f4d5954d1d70" action="command" session="CSLag_COT">
+                            <command>
+                                <body>slot shutdown 1/b</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="02bd7ef3-fab0-46ca-991b-56abdb8325ef" action="sleep">
+                            <command>
+                                <body>5</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="504c4a0a-5894-4398-97bf-cc9e11bbf881" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int ten 1/b/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="f2d82d00-9fc0-4a92-ba7e-cf2d3ff2d83a" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="4741adea-2614-4866-b1cf-637fa0416ccf" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int ten 1/b/2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="3f77583e-89e8-4bf4-ba85-7db7437c1a9a" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="21c16b11-9d88-4f14-a414-393f3aba478f" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int ten 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="42cfa1d3-0a5e-4c42-a74f-fb06fe3c29bc" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="fdf6f9e6-0a37-4991-bde5-36aa3bdfabd2" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int ten 1/a/2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="c5483e9e-d995-42bb-b029-7972487b97bc" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="15d76a10-fc19-4e7c-a6d7-3c34eb57bb77" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int gig 1/b/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="0dc68f03-cc73-4569-942f-71fef097adde" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="c718b108-ca59-4fce-9c6d-f766d7aaefe9" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int gig 1/b/2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="df96a8e4-eb98-433b-9cc9-de95c0c67718" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="cc5ee089-ec93-47e2-a637-029688149b71" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int gig 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="4a2f8013-0d21-4af5-947d-faa964da8efd" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="1e56fdf1-5f32-4e17-ba15-45abc0fff0fb" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int gig 1/a/2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="6e9181d8-6103-4edd-a3c4-33b064aeb6c7" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="05de5c91-de0d-4219-bd01-9993118b50c7" action="command" session="CSLag_COT">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Disable ports">
+                        <description>Disable the physical ports (i.e. 10Gig or 1Gig) that will comprised the lag.
+</description>
+                        <expectedResult>Ports disabled
+</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="a3063dc7-df62-45c2-b689-42efe3f0ac2a" action="comment">
+                    <command>
+                        <body>Prep for Link Agg. Group (lag)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b66f815b-be8c-4ef6-9a04-60183b7522bd" action="comment">
+                            <command>
+                                <body> remove the &apos;default ethernet interface&apos;, delete any existing lag.</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="bbfb8191-4b08-42ce-bbaf-28101cb594ec" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no ethernet default interface</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="31239105-e241-4a9d-b081-aa83c2743302" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int lag 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="e7040625-9635-42b2-bf1e-0e64acf3ada5" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shutdown</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="18dd4e13-846e-4665-a2d3-ca14d800f40b" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no cross-slot</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="8c35cb96-c2e7-4a9a-921e-18d96c8f431c" action="command" session="CSLag_COT">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="ce9a70fb-c7a5-4d32-a79f-2f31523d8030" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no int lag 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="78cd7419-f75a-4b04-b76a-0f19f8b8b6c5" action="sleep">
+                            <command>
+                                <body>3</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Prep COT for Link Agg. Group">
+                        <description>Remove any &apos;default ethernet interface&apos;.
+Delete any existing lag-group (i.e. no interface lag 1/a/1).</description>
+                        <expectedResult>LAG is created.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="c7d57e48-10bc-4332-b9b0-8f4dcf5b5f46" action="comment">
+                    <command>
+                        <body>Add Links to the lag</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="acc0f484-0b94-4f68-98af-ff7933ec91ad" action="command" session="CSLag_COT">
+                            <command>
+                                <body>link ten 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="5b262a21-e730-4869-b732-6ef43c74006b" action="command" session="CSLag_COT">
+                            <command>
+                                <body>link ten 1/b/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Link Ports">
+                        <description>Whle in the &apos;LAG&apos; provision, &apos;Link&apos; the desired Switch Module ports to the group using the &apos;link interface 1/x/y&apos; command.
+</description>
+                        <expectedResult>Ports are &apos;linked&apos;</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="188cb56c-77f0-4614-b488-b879eeb6d038" action="comment">
+                    <command>
+                        <body>Enable Cross-Slot</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="38f5cf0d-5b47-461b-afc0-4b0810a636d2" action="command" session="CSLag_COT">
+                            <command>
+                                <body>cross-slot</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="08224261-64f8-4002-b22c-9d1da431e6af" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no shutdown</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="12cf550c-2414-44e3-adc9-7709dc6d51b0" action="command" session="CSLag_COT">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Enable Cross-Slot">
+                        <description>From the LAG group: TA5000(config)#interface lag-group 1/x/y. 
+Issue the &apos;cross-slot&apos; command.</description>
+                        <expectedResult>cross-slot is activated</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="c1c679b8-8619-4f14-aae7-e9f45b29c426" action="comment">
+                    <command>
+                        <body>Enable SM 1/B, enable the necessary Ports, Enable &apos;link aggregation control protocol&apos; (LACP)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="46254e0d-1978-4af6-8d25-c2f59e1e9cbe" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no slot shutdown 1/B</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="73071fba-f9c6-4dc1-b538-cf10f91d62e0" action="sleep">
+                            <command>
+                                <body>5</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="64f4a9ad-0847-4f83-873e-e390f1978cc7" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int ten 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="40ff0808-d0ee-4ada-8acf-eadbf39a9549" action="command" session="CSLag_COT">
+                            <command>
+                                <body>lacp mode active</body>
+                            </command>
+                            <postProcessing skipGlobalRules="true"/>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="e29f61b4-33a8-4f76-9d94-69f427658da0" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="895c4053-7a25-4bac-a130-ac371ce8ab91" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int ten 1/b/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="0fd4be44-ef57-4074-90ce-5ab5d8715f72" action="command" session="CSLag_COT">
+                            <command>
+                                <body>lacp mode active</body>
+                            </command>
+                            <postProcessing skipGlobalRules="true"/>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="14cdc884-765d-4a5c-bf82-fe2f9d1d00f2" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="385b48a2-5f26-425a-82ca-842e2f2c476d" action="command" session="CSLag_COT">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Enable ports">
+                        <description>Enable the physical ports (i.e. 10Gig or 1Gig) that will comprised the lag.
+Enable &apos;link aggregation control protocol&apos; (LACP)</description>
+                        <expectedResult>Ports enabled. LACP enabled.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="9e367670-02ea-4dc7-b15a-64d4d1759eac" action="comment">
+                    <command>
+                        <body>Set Default Network Interface to use the &apos;lag&apos;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6d251e88-f49b-40f2-8977-b5387092074d" action="command" session="CSLag_COT">
+                            <command>
+                                <body>ethernet default interface lag 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="3cc3de77-206a-4088-9a46-71e5f901afc7" action="sleep">
+                            <command>
+                                <body>3</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="593b3335-ec4c-4f00-ac3b-dbbb93476b0a" action="command" session="CSLag_COT">
+                            <command>
+                                <body>do show system param</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>show_system_param</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="56854384-3983-4504-828f-94f52192d3b3" action="command" session="CSLag_COT">
+                            <command>
+                                <body>do show system param</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>ethernet default interface      : lag-group 1/A/1</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>\\n$show_system_param</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>{auto_message_false}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Set and Confirm the &apos;DNI&apos;">
+                                <description>Set the Default Network Interface (DNI) to that of the new CSLAG:
+e.g.: BBDLC-N001(config)#eth def int lag-group 1/a/1
+
+Do a &apos;show system parameters&apos; to confirm the &apos;lag&apos; is set as the DNI.&apos;
+BBDLC-N001#sho system param
+node-number                     : 1
+network-name                    : TA5000 Network      
+ethernet default interface      : lag-group 1/A/1
+ethernet s-tag-tpid             : 0x8100
+ethernet internal-system-s-tag  : 3072
+</description>
+                                <expectedResult>&apos;lag&apos; is set at the DNI
+</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo stepName="Set Default Interface">
+                        <description>Set the Default Network Interface (DNI) to that of the new CSLAG:
+e.g.: BBDLC-N001(config)#eth def int lag-group 1/a/1</description>
+                        <expectedResult>DNI is that of the CSLAG</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="bac542c3-3c1a-42d1-b2fa-c6d98422830c" action="comment">
+                    <command>
+                        <body>Shut/No Shut the LAG Interface group</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f763287d-e38c-40cd-947c-94c6caac82f4" action="command" session="CSLag_COT">
+                            <command>
+                                <body>int lag 1/a/1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="9ab99d3d-c554-4ef9-a5c9-88fb71e40a51" action="command" session="CSLag_COT">
+                            <command>
+                                <body>shut</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="ed0d4019-bcce-410f-9ada-ad92eb3c68b5" action="sleep">
+                            <command>
+                                <body>3</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f99ab479-ce14-4c2a-8dcc-bad575f7f0ab" action="command" session="CSLag_COT">
+                            <command>
+                                <body>no shutdown</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="8f6a166c-7ab0-4d86-add3-b7bd76faacf9" action="sleep">
+                            <command>
+                                <body>5</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="32fd804a-dab7-4f8f-9cce-5666a1e4e87c" action="comment">
+                    <command>
+                        <body>Exit Craft Session into &apos;enable&apos; mode</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b255fcdc-5208-49d9-b825-5aae2d458ea5" action="command" session="CSLag_COT">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="99ffb079-6e4b-49dc-93a3-5a3b6241afe8" action="comment">
+                            <command>
+                                <body>allow time for the &apos;lag&apos; to come up.</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="14313d80-bd1a-4e48-bec1-618de4dbd8ba" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a80f82dd-859f-4934-96f8-f1fb304d5332" action="comment">
+                    <command>
+                        <body>Confirm &apos;lag&apos; status at the COT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0bb87780-331d-44f2-8db7-cec1170dba42" action="command" session="CSLag_COT" normalOffset="2.756" estimatedStepExecutionTime="0.682" useResponseMapLibraryApplicability="false" useAutoMap="false">
+                            <command>
+                                <body>show interface lag 1/a/1</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>show_lag_group</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.622" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <responseMap>project://RM_TA5000_OSP/response_maps/CommonMaps/ShowCommands/showInterfaces/showInterfaceLagGroup/show_interface_lag-group.ffrm</responseMap>
+                            <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                        </item>
+                        <item guid="61a45c4b-590c-411a-a890-f4e87de9d7c7" action="command" session="CSLag_COT" normalOffset="2.756" estimatedStepExecutionTime="0.682" useResponseMapLibraryApplicability="false" useAutoMap="false">
+                            <command>
+                                <body>show interface lag 1/a/1</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>IS</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>{auto_message_true}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>{auto_message_false}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>up</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>{auto_message_true}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>{auto_message_false}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.622" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <responseMap>project://RM_TA5000_OSP/response_maps/CommonMaps/ShowCommands/showInterfaces/showInterfaceLagGroup/show_interface_lag-group.ffrm</responseMap>
+                            <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Check TA5000 &apos;lag&apos; Status">
+                                <description>Check the &apos;lag&apos; status by issuing #show int lag 1/a/1.
+Output should be similar to that shown below:
+
+CSLAG-COT#sho int lag 1/a/1
+Slot/ID      :  A/1
+Alias        : LAG_GROUP_239_1
+Admin Status : IS
+Oper Status  : Up
+Cross-Slot                      : enabled
+Min Act Links: 1
+Active Links : 4
+Links        : ten-gig-eth 1/A/1 (Up)
+               ten-gig-eth 1/A/2 (Up)
+               ten-gig-eth 1/B/1 (Up)
+               ten-gig-eth 1/B/2 (Up)</description>
+                                <expectedResult>&apos;lag&apos; status is &apos;up&apos;.</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo stepName="Confirm TA5000 Status - 1">
+                        <description>CSLAG-COT#sho int lag 1/a/1
+Slot/ID      :  A/1
+Alias        : LAG_GROUP_239_1
+Admin Status : IS
+Oper Status  : Up
+Cross-Slot                      : enabled
+Min Act Links: 1
+Active Links : 4
+Links        : ten-gig-eth 1/A/1 (Up)
+               ten-gig-eth 1/A/2 (Up)
+               ten-gig-eth 1/B/1 (Up)
+               ten-gig-eth 1/B/2 (Up)</description>
+                        <expectedResult>CrossSlot is &apos;Enabled&apos;, and Operational Status is &apos;Up&apos;.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="ea162743-0214-4f66-8dce-351f9414774f" action="comment">
+                    <command>
+                        <body>Confirm &apos;lag&apos; status at the Router</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0ace673e-fdd8-4b0e-8249-61b48059b7b1" action="command" session="6509E">
+                            <command>
+                                <body>sho int port-channel [param cisco_port_ch_num] ether</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>Port-channel Ag-Inuse</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CSLag is status is &apos;up&apos; on the Cisco</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CSLag Status is &apos;down&apos; on the Cisco</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>show_router_portchannel_status</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="5403bdad-7db9-4fe5-9cf9-02c7b5f0f394" action="command" session="6509E">
+                            <command>
+                                <body>sho int port-channel [param cisco_port_ch_num] ether</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>Port-channel Ag-Inuse</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CSLag is status is &apos;up&apos; on the Cisco\\n$show_router_portchannel_status</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CSLag Status is &apos;down&apos; on the Cisco</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Check the Router status">
+                                <description>Check that the Router/Switch port-channel interface.
+
+example:
+CNDC_C30_CO6509E#sho int port-channel 1 ether
+Port-channel1   (Primary aggregator)
+
+Age of the Port-channel   = 7d:03h:52m:16s
+Logical slot/port   = 14/1          Number of ports = 4
+HotStandBy port = null 
+Port state          = Port-channel Ag-Inuse 
+Protocol            =   LACP
+Port security       = Disabled
+Fast-switchover     = disabled
+Load share deferral = disabled   
+
+Ports in the Port-channel: 
+
+Index   Load      Port          EC state       No of bits
+------+------+------------+------------------+-----------
+ 0      50          Te2/1             Active   2
+ 1      28          Te2/2             Active   2
+ 2      05          Te2/3             Active   2
+ 3      82          Te2/4             Active   2
+
+Time since last port bundled:    0d:18h:46m:59s    Te2/4
+Time since last port Un-bundled: 0d:18h:47m:29s    Te2/2</description>
+                                <expectedResult>Port Channel should show &apos;up&apos;
+</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <qualityCenterStepInfo stepName="Check Router Interface">
+                        <description>Check that the Router/Switch port-channel interface.
+
+example:
+CNDC_C30_CO6509E#sho int port-channel 1 ether
+Port-channel1   (Primary aggregator)
+
+Age of the Port-channel   = 7d:03h:52m:16s
+Logical slot/port   = 14/1          Number of ports = 4
+HotStandBy port = null 
+Port state          = Port-channel Ag-Inuse 
+Protocol            =   LACP
+Port security       = Disabled
+Fast-switchover     = disabled
+Load share deferral = disabled   
+
+Ports in the Port-channel: 
+
+Index   Load      Port          EC state       No of bits
+------+------+------------+------------------+-----------
+ 0      50          Te2/1             Active   2
+ 1      28          Te2/2             Active   2
+ 2      05          Te2/3             Active   2
+ 3      82          Te2/4             Active   2
+
+Time since last port bundled:    0d:18h:46m:59s    Te2/4
+Time since last port Un-bundled: 0d:18h:47m:29s    Te2/2</description>
+                        <expectedResult>Confirm:
+Port state          = Port-channel Ag-Inuse 
+
+Verify the &apos;Number of&apos; and &apos;Physical ports&apos; shown are those expected.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="af73367c-2a7f-4886-a1f8-855d7048cb25" action="comment">
+                    <command>
+                        <body>Ping the in-band gateway address to confirm &apos;lag&apos; functionality</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f9c84a22-74a1-4a09-88f4-48015cdfa51b" action="command" session="CSLag_COT">
+                            <command>
+                                <body>ping 10.13.65.254 repeat 10</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>ping_results</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="7aaeb0bc-b38c-4da8-acb6-a08691739760" action="command" session="CSLag_COT">
+                            <command>
+                                <body>ping 10.13.65.254 repeat 10</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>Reply from 10.13.65.254</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>\\n$ping_results</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>{auto_message_false}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Ping thru the &apos;lag&apos;">
+                                <description>Ping the in-band gateway to verify &apos;lag&apos; is &apos;up&apos;.</description>
+                                <expectedResult>ping successful
+</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="3b2ae100-79de-4cd3-9592-5ed7ad75d6eb" action="comment">
+                    <command>
+                        <body>Ping from DOS Prompt (i.e. from outside of the testbed)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a9d657bb-f658-4c1d-8caa-a88c47d65eff" action="open" session="DOS">
+                            <command>
+                                <body>project://PQ_Production_Project/Session_Profiles/QuickCalls/Command_Win_QC.ffsp</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="f47aced1-bb93-4ef8-9b90-0f6d27ed5e9f" action="command" session="DOS">
+                            <command>
+                                <body>ping [param cot_uut_inband_ip]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>packets_received()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value &gt; 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Ping was successful from PC command prompt</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Could not ping form outside of testbed.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Ping from outside of network">
+                                <description>Ping the inband address from outside of the testbed and/or router. 
+i.e. from an external PC command prompt.</description>
+                                <expectedResult>Able to ping COT from outside of testbed and through the in-band CSLag interface.
+</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e2ffc60a-22b4-4a6e-a1c0-15910d46a7a3" action="comment">
+                    <command>
+                        <body>Do AUC comparison check</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="eccd8a98-bb31-4510-9db0-6e85d30f3886" action="open" session="CSLag_InBand">
+                            <command>
+                                <body>device:BBDLC_N1#TA5000_InBand</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <advancedProperties defaultSessionProfile="project://PQ_Production_Project/Session_Profiles/QuickCalls/TA5000_Generic_CLI_QC.ffsp"/>
+                        </item>
+                        <item guid="4db87578-0c90-473a-8601-b23a3405e118" action="Login" session="CSLag_InBand">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <advancedProperties defaultSessionProfile="project://PQ_Production_Project/Session_Profiles/QuickCalls/TA5000_Generic_CLI_QC.ffsp"/>
+                        </item>
+                        <item guid="fb94eacb-b16a-4649-a9b4-f3274e7e400f" action="CheckTA5000SoftwareAgainstAucFile" session="CSLag_InBand">
+                            <command>
+                                <body>-aucFilePath $auc_file_path -ip [param cot_uut_inband_ip]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>FAIL</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>\\n\\nPassed System Auc check.\\n</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>&lt;message&gt;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>system_inventory</storeResponseAt>
+                                <storeResponseText>true</storeResponseText>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <advancedProperties defaultSessionProfile="project://PQ_Production_Project/Session_Profiles/QuickCalls/TA5000_Generic_CLI_QC.ffsp"/>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Confirm &apos;lag&apos;, Log Firmware">
+                                <description>The &apos;lag&apos; is functional if a management session can be established.
+Once established, further verify:
+Compare (and Log) the firmware installed on the UUT to the *auc file (auc files network path to be provided in the parameters).
+Test will verify shelf system release matches what is expected from the *.auc file.</description>
+                                <expectedResult>&apos;lag&apos; is functional, Code versions match.
+</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c2be26be-09ef-4ff9-8dd5-550a7a7488eb" action="comment">
+                    <command>
+                        <body>QC automation test summary results</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f53c2716-51b3-4af8-9a8c-899754c63d67" action="comment">
+                            <command>
+                                <body>Get topology information - need to get this in main. Can&apos;t seem to get it to work from called procedure.  Also, handle error if topology is not used</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="7ccbb107-f386-48d7-b50b-d26aa3ad92d9" action="eval">
+                                    <command>
+                                        <body>puts [tbml query //tbml/header/name]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <storeResponseAt>topologyInfo</storeResponseAt>
+                                    </postProcessing>
+                                    <eventHandlers>
+                                        <item name="OnInterpreterError">
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                    <message>{error}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </item>
+                                    </eventHandlers>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="a3ccedfa-c57d-4360-b305-9a4adc6f4a06" action="if">
+                                    <command>
+                                        <body>[response topologyInfo] != &quot;&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="1ace1960-9f8f-4ee0-9e1b-cc018fc71a6b" action="then">
+                                            <nestedSteps>
+                                                <item guid="4bb1c246-be3c-43de-9b7f-9c6b3cee4937" action="comment">
+                                                    <command>
+                                                        <body>topology found - log to DB</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                                <item guid="15be53b8-0d99-4257-8fe6-56bfb6e74ca6" action="eval">
+                                                    <command>
+                                                        <body>set topology [response topologyInfo]</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="1f787f7d-f1ec-4ee1-96c1-5edf65cebe4e" action="else">
+                                            <nestedSteps>
+                                                <item guid="8079d4f7-8e1d-4bf3-afa9-eaf65419ac94" action="comment">
+                                                    <command>
+                                                        <body>topology not found or name is blank - flag this in the DB</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                                <item guid="2d3cfcd9-63d6-4cfc-9582-d708d93d4c9d" action="eval">
+                                                    <command>
+                                                        <body>set topology &quot;TOPOLOGY NOT USED OR NAME NOT DEFINED&quot;</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="cf011b55-e33b-47c8-b766-c1fb8385cfa6" action="comment">
+                            <command>
+                                <body>Call to insert QC metrics into DB</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="6c5c7dff-4fce-433e-91c3-728a5eb490d4" action="call">
+                                    <command>
+                                        <body>project://PQ_Production_Project/test_cases/CommonProcedures/General/CommonUtilityProcedures.fftc#qcTestMetrics -topology $topology</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Test case summary statistics">
+                        <description>This is an automated test case and the results of this test step contain automation details related to this test run. These statistics give a clear overview of the number of data points analyzed during test execution.</description>
+                        <expectedResult>Print test summary results for automation statistics.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="2da510b7-4f54-4abf-8d45-9f8c18f1166f" action="close" session="CSLag_COT">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b899338e-79fa-46ef-9223-1e7672217d96" action="close" session="6509E">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <qualityCenterTestInfo domain="CND" project="TA5000" storeTestLocation="true">
+        <testLocation>Subject\\Product_Qualification\\Automated Tests\\BBDLC Ethernet\\Switch Modules\\Cross-Slot Link Aggregation\\025G1_Cross-Slot_LAG_2x10Gig_to_Cisco</testLocation>
+    </qualityCenterTestInfo>
+</testCase>

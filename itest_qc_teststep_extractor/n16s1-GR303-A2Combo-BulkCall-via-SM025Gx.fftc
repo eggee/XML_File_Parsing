@@ -1,0 +1,1090 @@
+<?xml version="1.0"?>
+<testCase version="4.2.2.68987">
+    <general>
+        <documentation>Bulk Call Report Parsing Test Case</documentation>
+        <notes>Uses an existing Bulk Call Report to &apos;parse&apos; specific results for a given hardware/topology scenario.
+Use the &apos;ScriptComment&apos; values below in the parameter field before execution.
+Also, make sure the &apos;path&apos; to the report, as well as the report-name are set accordingly.
+
+Node\tSlot\tSet\tScriptComment
+16\t1\t1\tN16S1-A2Combo
+16\t2\t2\tN16S2-V2Combo
+16\t3\t3\tN16S3-Rpots
+16\t4\t4\tN16S4-Rpots
+17\t1\t5\tN17S1-A2Combo
+17\t2\t6\tN17S2-V2Combo
+17\t3\t7\tN17S3-Rpots
+17\t4\t8\tN17S4-Rpots
+18\t1\t9\tN18S1-A2Combo
+18\t2\t10\tN18S2-V2Combo
+18\t3\t11\tN18S3-Rpots
+18\t4\t12\tN18S3-Rpots
+19\t1\t13\tN19S1-A2Combo-via-N14-Egress-VG
+19\t2\t14\tN19S2-V2Combo-via-N14-Egress-VG
+19\t3\t15\tN19S3-Rpots-via-N14-Egress-VG
+19\t4\t16\tN19S4-Rpots-via-N14-Egress-VG
+16\t5\t1\tN16S5-A2Combo-MetaSwitch
+16\t6\t2\tN16S6-Rpots-MetaSwitch
+16\t7\t3\tN16S7-Rpots-MetaSwitch
+16\t8\t4\tN16S8-Rpots-MetaSwitch
+17\t5\t5\tN17S5-A2Combo-MetaSwitch
+17\t6\t6\tN17S6-V2Combo-MetaSwitch
+17\t7\t7\tN17S7-Rpots-MetaSwitch
+17\t8\t8\tN17S8-Rpots-MetaSwitch
+18\t5\t9\tN18S5-A2Combo-MetaSwitch
+18\t6\t10\tN18S6-V2Combo-MetaSwitch
+18\t7\t11\tN18S7-Rpots-MetaSwitch
+18\t8\t12\tN18S7-Rpots-MetaSwitch
+19\t5\t13\tN19S5-A2Combo-via-Broadsoft-ANI
+19\t6\t14\tN19S6-V2Combo-via-Broadsoft-ANI
+19\t7\t15\tN19S7-Rpots-via-Broadsoft-ANI
+19\t8\t16\tN19S8-Rpots-via-Broadsoft-ANI
+</notes>
+        <owner>Tim Eggenberger</owner>
+    </general>
+    <execution estimatedExecutionTime="1">
+        <parameters version="4.2.2.68987">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <results_folder pt:description="Location of Bulk Report. %20 = space %23 = # - C:/Abacus_Results/20121204_002#1/ - H:/Abacus_Reports/">C:/Abacus_Results/</results_folder>
+                    <bulk_call_report pt:description="Name of Bulk Report - BBDLC_MGCP_SIP_GR303_InterMix-2_001.xml - BBDLC_GR303(COT)_BulkCall_LoadTest_001.xml">BulkCall_SystemTest_780channels_Mgcp_Sip_and_GR303.xml</bulk_call_report>
+                    <nodes_in_path pt:description="Nodes in the topology that voice traverses.">1 16 17 18 19</nodes_in_path>
+                    <parse_result_1 pt:description="NxSy: Use the &apos;parse_results&apos; field to find results within the main *.xml report">GR303-N16S1A2c</parse_result_1>
+                    <parse_result_2 pt:description="if additional Access Modules were ran, enter the NxSy to reference here, otherwise leave blank."/>
+                    <parse_result_3 pt:description="if additional Access Modules were ran, enter the NxSy to reference here, otherwise leave blank."/>
+                    <parse_result_4 pt:description="if additional Access Modules were ran, enter the NxSy to reference here, otherwise leave blank."/>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://PQ_Production_Project/topologies/BBDLC/BBDLC.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="e19673be-3565-4cf2-9718-e4cd682e4883" action="comment">
+                    <command>
+                        <body>Using the &apos;Main&apos; bulk call report, locate result data to a specific module and record/analyze the reulsts.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="dee831bc-4c96-4b9e-8be2-9950a5f79ec2" action="comment">
+                    <command>
+                        <body>1.Define Parameters to be used as variables for the test.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a9110b82-b2c0-435d-82dd-a7522dc23386" action="eval">
+                            <command>
+                                <body>set auc_file_path [tbml property -id BBDLC_Node_1 aucFilePath]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="efd6ee30-3bad-4613-b709-719106e04b56" action="eval">
+                            <command>
+                                <body>set resultsFolder [param results_folder]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="694ea01a-f6f9-422e-a43b-beafc6fa10c5" action="eval">
+                            <command>
+                                <body>set bulk_call_report [param bulk_call_report]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="36abc65f-9b29-4704-95bd-2150f349e458" action="comment" skip="true">
+                    <command>
+                        <body>2.Retrieve and Record the Topology of the Test Bed</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6f5ceae7-8a10-4a68-80cb-f7630c1d4000" action="call">
+                            <command>
+                                <body>project://PQ_Production_Project/test_cases/CommonProcedures/TA5000/BBDLC-Ethernet/cp_TA5000_Procedures.fftc#TA5K_Show_Toplogy -session node1topo</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <advancedProperties defaultSessionProfile="project://PQ_Production_Project/Session_Profiles/QuickCalls/TA5000_Generic_CLI_QC.ffsp"/>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Record TestBed Toplogy">
+                                <description>From the Central Office Terminal (TA5000 Node1), issue a &apos;Show Toplogy Detail&apos; in order to record the existing Toplogy prior to test execution.
+This will allow for future reference and give a textual representation of how the test bed was physically contructed at execution time.</description>
+                                <expectedResult>Topolgy was recorded.</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="84009227-bbf1-4ebc-b3d9-68f8dcbada1b" action="comment">
+                    <command>
+                        <body>3:Python AUC Checks</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="61d5bbce-85be-42b7-b8bd-7c69219ac28f" action="comment">
+                            <command>
+                                <body>Step 3.1: Open command prompt to invoke Python</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="b9dc894c-6f22-4745-b96c-3745f065651e" action="open" session="cmd">
+                                    <command>
+                                        <body>project://PQ_Production_Project/Session_Profiles/GenericSessions/Command_Win.ffsp</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                            <completionProperties promptLearnUserResponseTime="200" promptLearnUserResponseTime.inherit="false"/>
+                                        </stepProperties>
+                                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="ca96e368-9cf1-418d-b83d-c05efe89bff5" action="comment">
+                            <command>
+                                <body>Step 3.2: Set Python source/destination directories</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="86508661-8a9f-415e-a25b-80e8f39aa2ae" action="eval">
+                                    <command>
+                                        <body>set sourceDir [info workspacepath]\\\\PQ_Production_Project\\\\Python_Libraries\\\\site-packages</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="1e971642-0462-4ab6-b515-7aa82ff4020d" action="eval">
+                                    <command>
+                                        <body>set desDir C:\\\\Python27\\\\Lib\\\\site-packages</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="9151b39b-b2e9-4f93-8eed-81b6a1bb63ff" action="comment">
+                            <command>
+                                <body>Step 3.3: Copy Python libraries from svn and save to python lib\\sit-packages</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="6d9ae013-a83c-44bd-bf9a-ae00b60e9d90" action="command" session="cmd">
+                                    <command>
+                                        <body>xcopy /E /Y $sourceDir $desDir</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="98db191f-3e05-4a4e-abfc-56810a2ae664" action="foreach">
+                            <command>
+                                <body>node_num [param nodes_in_path]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="efd2040b-9588-4810-8669-374363715238" action="comment">
+                                    <command>
+                                        <body>Step 3.4: TA5K AUC Check</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="7ec6c0de-837b-4638-84ad-236d7a967898" action="eval">
+                                            <command>
+                                                <body>set ip [tbml property -id BBDLC_Node_$node_num [list &quot;ip_addresses&quot; outband_ip]]</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                            <advancedProperties defaultSessionProfile="project://PQ_Production_Project/Session_Profiles/QuickCalls/TA5000_Generic_CLI_QC.ffsp"/>
+                                        </item>
+                                        <item guid="80d693d6-b620-44ae-b732-59ee7110eeca" action="comment">
+                                            <command>
+                                                <body>Step 3.4.2: Call Python ONT checker routine</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="69fa1b4d-5f6f-4ad9-b4e6-b380457f2904" action="command" session="cmd">
+                                                    <command>
+                                                        <body>cd [string map {\\i \\\\i} [info workspacepath]]\\\\PQ_Production_Project\\\\Python_Libraries\\\\site-packages</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                </item>
+                                                <item guid="e356c275-2e16-4eb8-99b3-6a84d0a2cd09" action="command" session="cmd">
+                                                    <command>
+                                                        <body>python runTa5kChecker.py -ip $ip -p $auc_file_path</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="contains">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                        <searchString>usage</searchString>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value == 1</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                    <message>usage: %prog -ip shelf_ip -p code_path</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="SkipRemainingRules">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                            <item>
+                                                                <extractorInfo extractorType="contains">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                        <searchString>Error</searchString>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value == 1</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="FailTest">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>There is an Error while runTa5kChecker.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="SkipRemainingRules">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                            <item>
+                                                                <extractorInfo extractorType="contains">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                        <searchString>No</searchString>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value == 1</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="FailTest">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>No cards found that match the input criteria.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="SkipRemainingRules">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                            <item>
+                                                                <extractorInfo extractorType="contains">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                        <searchString>FAIL</searchString>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value == 0</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                                    <message>$ip had all Slots are at the current release, $auc_file_path</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                        <actionsWhenFalse>
+                                                                            <item actionId="FailTest">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>One or more Slots are not at the current release, $auc_file_path</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenFalse>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                        <storeResponseAt>retVal</storeResponseAt>
+                                                        <storeResponseText>true</storeResponseText>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                                        <completionProperties promptLearnUserResponseTime="300" promptLearnUserResponseTime.inherit="false"/>
+                                                    </applicationProperties>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="TA5K AUC checker">
+                                                <description>Using the current AUC file as a baseline, open a SNMP session to the shelf to walk the system inventory table.  From the table, capture the slot, part number and software release.  Verify the code matches what is in the AUC file.</description>
+                                                <expectedResult>All slots are operating at the expected release.</expectedResult>
+                                            </qualityCenterStepInfo>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="87904c9f-b188-4c67-88ee-b85767019f4f" action="comment">
+                            <command>
+                                <body>Step 3.6: Close DOS Python prompt</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="0f4982ef-f286-4749-b284-845adfeb5283" action="close" session="cmd">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="57d552c4-91cf-446c-bfad-2623d88719c1" action="comment">
+                    <command>
+                        <body>5.Read the previously run, Main, (*.xml) report into a variable called AbacusXML, Extract the unique &apos;setNumber&apos; using the &apos;parse_results_x&apos; variables</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9d8aa8b5-e760-49a4-b8d9-8ab14fe20b52" action="readFile" useResponseMapLibraryApplicability="false">
+                            <command>
+                                <body>file:/$resultsFolder/$bulk_call_report</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>timeRun()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value ne &quot;00:00:00&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>The report was located and retrieved from:\\n $resultsFolder/$bulk_call_report</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>{auto_message_false}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>\\n======Test Information======\\n</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>timeStart()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>1 == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>\\nStart: {value}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="Eval">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                            <statement>set timeStart [string trimright $value 1234567890/]</statement>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>timeRun()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>1 == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>\\nRun Time: {value}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="Eval">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                            <statement>set timeRun $value</statement>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>timeStop()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>1 == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>\\nStop: {value}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="Eval">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                            <statement>set timeStop [string trimright $value 1234567890/]</statement>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>\\n========Abacus Data========\\n</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>mapped/Xml/report/channel-data/gen-stats/stat-channels[1]/stat-channel[1]/@call-attempts</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>\\nCall Cycles: {value}</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query sub="true">.//partition-and-timing-settings/set-list/set\\[set-scripts/script-comments=&apos;[param parse_result_1]&apos;\\]/@num</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>set_number_1</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query sub="true">.//partition-and-timing-settings/set-list/set\\[set-scripts/script-comments=&apos;[param parse_result_2]&apos;\\]/@num</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>set_number_2</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query sub="true">.//partition-and-timing-settings/set-list/set\\[set-scripts/script-comments=&apos;[param parse_result_3]&apos;\\]/@num</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>set_number_3</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query sub="true">.//partition-and-timing-settings/set-list/set\\[set-scripts/script-comments=&apos;[param parse_result_4]&apos;\\]/@num</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>set_number_4</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>Abacus_XML</storeResponseAt>
+                            </postProcessing>
+                            <eventHandlers>
+                                <item name="OnExecReadFileError">
+                                    <item actionId="Eval">
+                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                            <statement>set reportParsed No</statement>
+                                        </actionProperties>
+                                    </item>
+                                </item>
+                                <item name="OnResponseMappingIssue">
+                                    <item actionId="Eval">
+                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                            <statement>set reportParsed No</statement>
+                                        </actionProperties>
+                                    </item>
+                                </item>
+                            </eventHandlers>
+                            <applicationProperties type="com.fnfr.svt.execution.builtin.exec.ReadFilePropertyGroup">
+                                <contentType>text/xml</contentType>
+                            </applicationProperties>
+                            <responseMap>project://RM_LabEquipment/Abacus/Commands/Abacus_ParseXMLReport.ffrm</responseMap>
+                            <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Retrieve Report">
+                                <description>This step locates an existing Bulk/System Report and logs the &apos;overall&apos; results for the &apos;system&apos;.
+Note, these results don&apos;t necessarily pertain to the specific &apos;set&apos; results obtain in later steps.</description>
+                                <expectedResult>System Report located and System Totals logged.</expectedResult>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="49fecc1f-7e4b-464b-803f-280a2c47715a" action="comment">
+                    <command>
+                        <body>6. Parse the report for results infor based on the given &apos;parse_result&apos; values.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0da5cbf2-d131-4f3f-b7be-8789f78ea715" action="comment">
+                            <command>
+                                <body>Retrieve results for &apos;parse_result_1&apos; </body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="337f8167-5b22-4b40-aa09-bba9c0b7dec1" action="if">
+                                    <command>
+                                        <body>[param parse_result_1] != &quot;&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="86eeea9b-d9a9-4b0e-aafd-ab9c272ffd0a" action="then">
+                                            <nestedSteps>
+                                                <item guid="f0b5c51e-f9b5-41d0-b55e-f98a1e40d5e2" action="call">
+                                                    <command>
+                                                        <body>project://PQ_Production_Project/test_cases/CommonProcedures/Abacus/Abacus_Procedures.fftc#Abacus_Report_Parse_Set_Extraction -resultsFolder $resultsFolder -set_number $set_number_1 -bulk_call_report $bulk_call_report -script_comment [param parse_result_1]</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="query">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                        <query>Report_Parsed()</query>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value eq &quot;Yes&quot;</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                    <message>\\nReport parsed correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                        <actionsWhenFalse>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>\\nReport did not parse correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="CallProcedure">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                    <command>Abacus_Procedures.fftc#Abacus_Disconnect -channel $channel -appNum $app1</command>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenFalse>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                    <qualityCenterStepInfo stepName="Retrieve Results (1)">
+                                                        <description>Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                                                        <expectedResult>Successful test run.</expectedResult>
+                                                    </qualityCenterStepInfo>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="c98f2094-af43-4c3b-933e-30fe842e962e" action="else">
+                                            <nestedSteps>
+                                                <item guid="1d70ad94-67f1-43e5-b423-2915b1472a18" action="eval">
+                                                    <command>
+                                                        <body>puts &quot;No &apos;script parameter&apos; was specified for this step, therefore no results were retrieved&quot;</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Retrieve Results (1)">
+                                <description>Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                            </qualityCenterStepInfo>
+                        </item>
+                        <item guid="5c24552f-800e-429d-ad06-0a90cf8920ea" action="comment">
+                            <command>
+                                <body>Retrieve results for &apos;parse_result_2&apos;  if not &apos;blank&apos;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="b2fe78b2-10ca-4fa9-83d4-c67361fd8918" action="if">
+                                    <command>
+                                        <body>[param parse_result_2] != &quot;&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="2ea587c1-f78f-4b8c-99cb-b99d8521c99e" action="then">
+                                            <nestedSteps>
+                                                <item guid="39f5b7d2-02d1-44ea-88ff-cb5dce0ee028" action="call">
+                                                    <command>
+                                                        <body>project://PQ_Production_Project/test_cases/CommonProcedures/Abacus/Abacus_Procedures.fftc#Abacus_Report_Parse_Set_Extraction -resultsFolder $resultsFolder -set_number $set_number_2 -bulk_call_report $bulk_call_report -script_comment [param parse_result_2]</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="query">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                        <query>Report_Parsed()</query>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value eq &quot;Yes&quot;</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                    <message>\\nReport parsed correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                        <actionsWhenFalse>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>\\nReport did not parse correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="CallProcedure">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                    <command>Abacus_Procedures.fftc#Abacus_Disconnect -channel $channel -appNum $app1</command>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenFalse>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                    <qualityCenterStepInfo stepName="Retrieve Results (2)">
+                                                        <description>If additional Access Modules can be credited:
+Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                                                        <expectedResult>Successful test run.</expectedResult>
+                                                    </qualityCenterStepInfo>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="e2256e89-b5cc-47f8-a4bf-fde303949d54" action="else">
+                                            <nestedSteps>
+                                                <item guid="55dfa0a6-48a4-43ba-88da-7395b28a38fa" action="eval">
+                                                    <command>
+                                                        <body>puts &quot;No additional &apos;script parameter&apos; was specified for this step, therefore no results were retrieved&quot;</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Retrieve Results (2)">
+                                <description>If additional Access Modules can be credited:
+Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                            </qualityCenterStepInfo>
+                        </item>
+                        <item guid="e6b59798-8096-4656-84af-430cb17e3175" action="comment">
+                            <command>
+                                <body>Retrieve results for &apos;parse_result_3&apos;  if not &apos;blank&apos;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="fbee8c8a-d67f-46f2-b5ac-fadb40f645a5" action="if">
+                                    <command>
+                                        <body>[param parse_result_3] != &quot;&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="331cba25-025d-4d06-bef2-bc60dfa6e33d" action="then">
+                                            <nestedSteps>
+                                                <item guid="9f461170-8145-424e-ac57-1a9736ca0dd5" action="call">
+                                                    <command>
+                                                        <body>project://PQ_Production_Project/test_cases/CommonProcedures/Abacus/Abacus_Procedures.fftc#Abacus_Report_Parse_Set_Extraction -resultsFolder $resultsFolder -set_number $set_number_3 -bulk_call_report $bulk_call_report -script_comment [param parse_result_3]</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="query">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                        <query>Report_Parsed()</query>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value eq &quot;Yes&quot;</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                    <message>\\nReport parsed correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                        <actionsWhenFalse>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>\\nReport did not parse correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="CallProcedure">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                    <command>Abacus_Procedures.fftc#Abacus_Disconnect -channel $channel -appNum $app1</command>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenFalse>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                    <qualityCenterStepInfo stepName="Retrieve Results (3)">
+                                                        <description>If additional Access Modules can be credited:
+Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                                                        <expectedResult>Successful test run.</expectedResult>
+                                                    </qualityCenterStepInfo>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="5a8f8ec0-13a8-46be-8025-67c78ff30e47" action="else">
+                                            <nestedSteps>
+                                                <item guid="9c39a15f-3cd0-4579-a652-510ec1aef922" action="eval">
+                                                    <command>
+                                                        <body>puts &quot;No additional &apos;script parameter&apos; was specified for this step, therefore no results were retrieved&quot;</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Retrieve Results (3)">
+                                <description>If additional Access Modules can be credited:
+Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                            </qualityCenterStepInfo>
+                        </item>
+                        <item guid="35c3b052-e0f2-46c6-b6c4-824f9ebe4161" action="comment">
+                            <command>
+                                <body>Retrieve results for &apos;parse_result_4&apos;  if not &apos;blank&apos;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="dd50cc21-f27e-4ffb-90ac-f0384bf7f613" action="if">
+                                    <command>
+                                        <body>[param parse_result_4] != &quot;&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="3d5e5d2b-2469-450b-ad78-5ff40a65d5ef" action="then">
+                                            <nestedSteps>
+                                                <item guid="27172a3f-9bb8-4282-bbff-5f61e15b9b89" action="call">
+                                                    <command>
+                                                        <body>project://PQ_Production_Project/test_cases/CommonProcedures/Abacus/Abacus_Procedures.fftc#Abacus_Report_Parse_Set_Extraction -resultsFolder $resultsFolder -set_number $set_number_4 -bulk_call_report $bulk_call_report -script_comment [param parse_result_4]</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="query">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                        <query>Report_Parsed()</query>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value eq &quot;Yes&quot;</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                    <message>\\nReport parsed correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                        <actionsWhenFalse>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>\\nReport did not parse correctly.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="CallProcedure">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                    <command>Abacus_Procedures.fftc#Abacus_Disconnect -channel $channel -appNum $app1</command>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenFalse>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                    <qualityCenterStepInfo stepName="Retrieve Results (4)">
+                                                        <description>If additional Access Modules can be credited:
+Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                                                        <expectedResult>Successful test run.</expectedResult>
+                                                    </qualityCenterStepInfo>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="d52a6ea6-7d47-41ee-98a5-7ca11a98df73" action="else">
+                                            <nestedSteps>
+                                                <item guid="f5612911-f462-4edd-92b0-3a2b2a39075d" action="eval">
+                                                    <command>
+                                                        <body>puts &quot;No additional &apos;script parameter&apos; was specified for this step, therefore no results were retrieved&quot;</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <qualityCenterStepInfo associateWithDesignStep="true" stepName="Retrieve Results (4)">
+                                <description>If additional Access Modules can be credited:
+Check the test results and confirm succesful test completion by checking for errors and the percent success rate.
+A %99.95 is considered passing, although allowance may be made for know bad copper pairs or faulty channels.</description>
+                            </qualityCenterStepInfo>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="79b295bf-0dbf-4d2a-9d43-c00df61e3481" action="comment">
+                    <command>
+                        <body>QC automation test summary results</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7c8e129a-defc-44b6-98bd-0d20c09561f2" action="comment">
+                            <command>
+                                <body>Get topology information - need to get this in main. Can&apos;t seem to get it to work from called procedure.  Also, handle error if topology is not used</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="6433f231-3aaa-49a0-aefe-b449277c287e" action="eval">
+                                    <command>
+                                        <body>puts [tbml query //tbml/header/name]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <storeResponseAt>topologyInfo</storeResponseAt>
+                                    </postProcessing>
+                                    <eventHandlers>
+                                        <item name="OnInterpreterError">
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                    <message>{error}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </item>
+                                    </eventHandlers>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="4bf8e36b-acbc-40bc-a397-e85c62e1b28f" action="if">
+                                    <command>
+                                        <body>[response topologyInfo] != &quot;&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="67a922bf-be09-44d9-93eb-2e70504f2feb" action="then">
+                                            <nestedSteps>
+                                                <item guid="e4181366-ad3e-43f3-9020-a544d8905e03" action="comment">
+                                                    <command>
+                                                        <body>topology found - log to DB</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                                <item guid="2b2dc22a-1497-485b-957e-19fc07d31238" action="eval">
+                                                    <command>
+                                                        <body>set topology [response topologyInfo]</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="232d3958-1b93-435d-88c3-4bedbbfdd38a" action="else">
+                                            <nestedSteps>
+                                                <item guid="74abab05-2f24-4393-97bb-5c4b179f738f" action="comment">
+                                                    <command>
+                                                        <body>topology not found or name is blank - flag this in the DB</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                                <item guid="c3dc371d-d574-4f37-a5a2-4e780c3317c7" action="eval">
+                                                    <command>
+                                                        <body>set topology &quot;TOPOLOGY NOT USED OR NAME NOT DEFINED&quot;</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="33dca894-f4c3-4959-bd39-68d28ba873eb" action="comment">
+                            <command>
+                                <body>Call to insert QC metrics into DB</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="6a50250d-cd49-46d7-8934-b7f305c1493e" action="call">
+                                    <command>
+                                        <body>project://PQ_Production_Project/test_cases/CommonProcedures/General/CommonUtilityProcedures.fftc#qcTestMetrics -topology $topology</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Test case summary statistics">
+                        <description>This is an automated test case and the results of this test step contain automation details related to this test run. These statistics give a clear overview of the number of data points analyzed during test execution.</description>
+                        <expectedResult>Print test summary results for automation statistics.</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <eventHandlers>
+        <item name="OnNoMatchesFoundToStore">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                    <message>No matches found to store in variable &quot;{0}&quot;</message>
+                </actionProperties>
+            </item>
+        </item>
+        <item name="OnNoMatchesFound">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                    <message>No matches found for {type}: {info}</message>
+                </actionProperties>
+            </item>
+        </item>
+    </eventHandlers>
+    <qualityCenterTestInfo domain="CND" project="TA5000" storeTestLocation="true">
+        <testLocation>Subject\\Product_Qualification\\Automated Tests\\BBDLC Ethernet\\Voice\\Bulk_Call_(Parsed)_GR303_Sip_and_MGCP_SystemTest\\n16s1-GR303-A2Combo-BulkCall-via-SM025Gx</testLocation>
+    </qualityCenterTestInfo>
+</testCase>

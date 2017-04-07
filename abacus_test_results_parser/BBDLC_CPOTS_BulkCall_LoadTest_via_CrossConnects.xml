@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<report version="1.1">
+	<header date="2017-01-27"/>
+	<report-title company="Adtran, Inc." test-title="iTest Generated Test" logo-type="default" print-on-every-page="false"/>
+	<footer text="BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects_001/footer.txt"/>
+	<measurements-summary>
+		<measurement id="MES_DIALTONE" name="Dial tone (s)" count="1598" min="0.249" avg="0.348" max="0.672" conf="6.71E-003"/>
+		<measurement id="MES_TONE" name="Tone (s)" count="0"/>
+		<measurement id="MES_SILENCE" name="Silence (s)" count="0"/>
+		<measurement id="MES_ENERGY" name="Energy (s)" count="0"/>
+		<measurement id="MES_PATHCONF" name="Acknowledgement (s)" count="1564" min="4.853" avg="5.204" max="11.223" conf="1.64E-002"/>
+		<measurement id="MES_STRING" name="String (s)" count="0"/>
+		<measurement id="MES_ROUNDTRIP" name="Round trip delay (s)" count="29716" min="0.422" avg="0.453" max="0.489" conf="2.51E-004"/>
+		<measurement id="MES_HIT_CNFR" name="Hit (s)" count="0"/>
+		<measurement id="MES_CLIPPING" name="Clipping (s)" count="0"/>
+		<measurement id="MES_CL_TERM" name="Call length terminate (s)" count="1564" min="68.655" avg="68.902" max="69.216" conf="1.06E-002"/>
+		<measurement id="MES_CL_ORIG" name="Call length originate (s)" count="1595" min="4.016" avg="69.857" max="76.863" conf="7.61E-001"/>
+		<measurement id="MES_USER_TIMER" name="User timer (s)" count="0"/>
+		<measurement id="MES_RTP_JITTER" name="RTP Jitter (msec)" count="0"/>
+		<measurement id="MES_SIP_RESPONSE_TIME" name="Response Time (msec)" count="0"/>
+		<measurement id="MES_CALL_SETUP" name="Call Setup (msec)" count="0"/>
+		<measurement id="MES_TEAR_DOWN" name="Tear Down (msec)" count="0"/>
+		<measurement id="MES_POST_DIAL_DELAY" name="Post dial delay (msec)" count="0"/>
+		<measurement id="MES_BIT_ERR_RATE" name="Bit Error Rate" count="0"/>
+		<measurement id="MES_PCPK" name="Packet PC Lost Rate (%)" count="0"/>
+		<measurement id="MES_ONE_WAY_DELAY" name="One way delay (msec)" count="0"/>
+		<measurement id="MES_JITTER" name="Jitter (msec)" count="0"/>
+		<measurement id="MES_RTP_PACKET_LOSS" name="RTP Packet Loss (per check interval)" count="0"/>
+		<measurement id="MES_RTP_PACKETS_OUT_OF_ORDER" name="RTP Packets Out Of Order (per check interval)" count="0"/>
+		<measurement id="MES_RTP_PACKETS_TOO_LATE" name="RTP Packets Late Arrival (per check interval)" count="0"/>
+		<measurement id="MES_FAX_CONNECT_RATE" name="Fax Connection Speed (bps)" count="0"/>
+		<measurement id="MES_FAX_TRANSFER_RATE" name="Fax Throughput Speed (bps)" count="0"/>
+		<measurement id="MES_MODEM_CONNECT_SPD_CLI_TX" name="Modem Connection Speed, Client Tx (bps)" count="0"/>
+		<measurement id="MES_MODEM_CONNECT_SPD_CLI_RX" name="Modem Connection Speed, Client Rx (bps)" count="0"/>
+		<measurement id="MES_MODEM_CONNECT_SPD_SRV_TX" name="Modem Connection Speed, Server Tx (bps)" count="0"/>
+		<measurement id="MES_MODEM_CONNECT_SPD_SRV_RX" name="Modem Connection Speed, Server Rx (bps)" count="0"/>
+		<measurement id="MES_MODEM_THROUGHPUT_SPD_CLI" name="Modem Throughput Speed, Client (bps)" count="0"/>
+		<measurement id="MES_MODEM_THROUGHPUT_SPD_SRV" name="Modem Throughput Speed, Server (bps)" count="0"/>
+		<measurement id="MES_FAX_LINE_ERR_RATE" name="Fax Line Error Rate" count="0"/>
+		<measurement id="MES_MODEM_BIT_ERR_RATE" name="Modem Bit Error Rate" count="0"/>
+		<measurement id="MES_PING_ROUNDTRIP" name="Ping Roundtrip Delay (msec)" count="0"/>
+		<measurement id="MES_PING_LOSS_RATE" name="Ping Packet Loss Rate (%)" count="0"/>
+		<measurement id="MES_FTP_DOWNLOAD_THROUGHPUT_CLI" name="FTP Download Throughput Client (bps)" count="0"/>
+		<measurement id="MES_FTP_UPLOAD_THROUGHPUT_CLI" name="FTP Upload Throughput Client (bps)" count="0"/>
+		<measurement id="MES_FTP_DOWNLOAD_THROUGHPUT_SRV" name="FTP Download Throughput Server (bps)" count="0"/>
+		<measurement id="MES_FTP_UPLOAD_THROUGHPUT_SRV" name="FTP Upload Throughput Server (bps)" count="0"/>
+		<measurement id="MES_MODEM_CONNECT_TIME" name="Modem Connection Time" count="0"/>
+		<measurement id="MES_FAX_CONNECT_TIME" name="Fax Connection Time" count="0"/>
+		<measurement id="MES_RRQ_RESPONSE_TIME" name="RRQ Response Time (msec)" count="0"/>
+		<measurement id="MES_FAX_PAGE_RECEIVED" name="Recieved fax pages (per call)" count="0"/>
+		<measurement id="MES_T38_PKT_SENT" name="Sent T.38 packets (per call)" count="0"/>
+		<measurement id="MES_T38_PKT_RCVD" name="Received T.38 packets (per call)" count="0"/>
+		<measurement id="MES_T38_SESSION_DUR" name="T.38 session length (s)" count="0"/>
+		<measurement id="MES_T38_AVG_TX_RATE" name="T.38 average transmission rate (bps)" count="0"/>
+		<measurement id="MES_T38_AVG_RX_RATE" name="T.38 average reception rate (bps)" count="0"/>
+		<measurement id="MES_FIRST_EC_ENABLED" name="Echo delay(EC ON)(0-600ms)" count="0"/>
+		<measurement id="MES_FIRST_EC_DISABLED" name="Echo delay(EC OFF)(0-600ms)" count="0"/>
+		<measurement id="MES_FIRST_ERL_EC_ENABLED" name="ERL(EC ON)(0-60dB)" count="0"/>
+		<measurement id="MES_FIRST_ERL_EC_DISABLED" name="ERL(EC OFF)(0-60dB)" count="0"/>
+		<measurement id="MES_FIRST_ERLE" name="ERLE" count="0"/>
+		<measurement id="MES_FIRST_TELR" name="TELR" count="0"/>
+		<measurement id="MES_SECOND_EC_ENABLED" name="Second Echo delay(EC ON) (0-600ms)" count="0"/>
+		<measurement id="MES_SECOND_ERL_EC_ENABLED" name="Second ERL(EC ON) (0-60dB)" count="0"/>
+		<measurement id="MES_SECOND_EC_DISABLED" name="Second Echo delay(EC OFF) (0-600ms)" count="0"/>
+		<measurement id="MES_SECOND_ERL_EC_DISABLED" name="Second ERL(EC OFF) (0-60dB)" count="0"/>
+		<measurement id="MES_THIRD_EC_ENABLED" name="Third Echo delay(EC ON) (0-600ms)" count="0"/>
+		<measurement id="MES_THIRD_ERL_EC_ENABLED" name="Third ERL(EC ON) (0-60dB)" count="0"/>
+		<measurement id="MES_THIRD_EC_DISABLED" name="Third Echo delay(EC OFF) (0-600ms)" count="0"/>
+		<measurement id="MES_THIRD_ERL_EC_DISABLED" name="Third ERL(EC OFF) (0-60dB)" count="0"/>
+		<measurement id="MES_NUMBER_OF_SIMULTANEOUS_CALLS" name="Number of Simultaneous Calls"/>
+		<measurement id="MES_CALLS_PER_SECOND" name="Calls per Second"/>
+		<measurement id="MES_JMOS_LONGS_MU_WAV|MU_LAW" file="Longs-mu.WAV" name="JMOS - Longs-mu.WAV mu-law" count="0"/>
+		<measurement id="MES_MOS_LONGS_MU_WAV|MU_LAW" file="Longs-mu.WAV" name="MOS - Longs-mu.WAV mu-law" count="31280" min="3.942" avg="4.432" max="4.469" conf="1.36E-003"/>
+		<measurement id="MES_PESQ_LONGS_MU_WAV|MU_LAW" file="Longs-mu.WAV" name="PESQ - Longs-mu.WAV mu-law" count="0"/>
+		<measurement id="MES_PESQ_MOS_LQO_LONGS_MU_WAV|MU_LAW" file="Longs-mu.WAV" name="PESQ (MOS-LQO) - Longs-mu.WAV mu-law" count="0"/>
+		<measurement id="MES_PSQM_LONGS_MU_WAV|MU_LAW" file="Longs-mu.WAV" name="PSQM - Longs-mu.WAV mu-law" count="31280" min="0.488" avg="0.602" max="1.783" conf="3.75E-003"/>
+		<measurement id="MES_RFACTOR_LONGS_MU_WAV|MU_LAW" file="Longs-mu.WAV" name="R-Factor - Longs-mu.WAV mu-law" count="0"/>
+		<measurement id="MES_RFACTOR_G107_LONGS_MU_WAV|MU_LAW" file="Longs-mu.WAV" name="R-FactorG107 - Longs-mu.WAV mu-law" count="0"/>
+		<measurement id="MES_JMOS_LONGS_MU_WAV|A_LAW" file="Longs-mu.WAV" name="JMOS - Longs-mu.WAV A-law" count="0"/>
+		<measurement id="MES_MOS_LONGS_MU_WAV|A_LAW" file="Longs-mu.WAV" name="MOS - Longs-mu.WAV A-law" count="0"/>
+		<measurement id="MES_PESQ_LONGS_MU_WAV|A_LAW" file="Longs-mu.WAV" name="PESQ - Longs-mu.WAV A-law" count="0"/>
+		<measurement id="MES_PESQ_MOS_LQO_LONGS_MU_WAV|A_LAW" file="Longs-mu.WAV" name="PESQ (MOS-LQO) - Longs-mu.WAV A-law" count="0"/>
+		<measurement id="MES_PSQM_LONGS_MU_WAV|A_LAW" file="Longs-mu.WAV" name="PSQM - Longs-mu.WAV A-law" count="0"/>
+		<measurement id="MES_RFACTOR_LONGS_MU_WAV|A_LAW" file="Longs-mu.WAV" name="R-Factor - Longs-mu.WAV A-law" count="0"/>
+		<measurement id="MES_RFACTOR_G107_LONGS_MU_WAV|A_LAW" file="Longs-mu.WAV" name="R-FactorG107 - Longs-mu.WAV A-law" count="0"/>
+		<measurement id="MES_JMOS_PILOT2_4_WAV|MU_LAW" file="Pilot2_4.wav" name="JMOS - Pilot2_4.wav mu-law" count="0"/>
+		<measurement id="MES_MOS_PILOT2_4_WAV|MU_LAW" file="Pilot2_4.wav" name="MOS - Pilot2_4.wav mu-law" count="0"/>
+		<measurement id="MES_PESQ_PILOT2_4_WAV|MU_LAW" file="Pilot2_4.wav" name="PESQ - Pilot2_4.wav mu-law" count="0"/>
+		<measurement id="MES_PESQ_MOS_LQO_PILOT2_4_WAV|MU_LAW" file="Pilot2_4.wav" name="PESQ (MOS-LQO) - Pilot2_4.wav mu-law" count="0"/>
+		<measurement id="MES_PSQM_PILOT2_4_WAV|MU_LAW" file="Pilot2_4.wav" name="PSQM - Pilot2_4.wav mu-law" count="0"/>
+		<measurement id="MES_RFACTOR_PILOT2_4_WAV|MU_LAW" file="Pilot2_4.wav" name="R-Factor - Pilot2_4.wav mu-law" count="0"/>
+		<measurement id="MES_RFACTOR_G107_PILOT2_4_WAV|MU_LAW" file="Pilot2_4.wav" name="R-FactorG107 - Pilot2_4.wav mu-law" count="0"/>
+		<measurement id="MES_JMOS_PILOT2_4_WAV|A_LAW" file="Pilot2_4.wav" name="JMOS - Pilot2_4.wav A-law" count="0"/>
+		<measurement id="MES_MOS_PILOT2_4_WAV|A_LAW" file="Pilot2_4.wav" name="MOS - Pilot2_4.wav A-law" count="0"/>
+		<measurement id="MES_PESQ_PILOT2_4_WAV|A_LAW" file="Pilot2_4.wav" name="PESQ - Pilot2_4.wav A-law" count="0"/>
+		<measurement id="MES_PESQ_MOS_LQO_PILOT2_4_WAV|A_LAW" file="Pilot2_4.wav" name="PESQ (MOS-LQO) - Pilot2_4.wav A-law" count="0"/>
+		<measurement id="MES_PSQM_PILOT2_4_WAV|A_LAW" file="Pilot2_4.wav" name="PSQM - Pilot2_4.wav A-law" count="0"/>
+		<measurement id="MES_RFACTOR_PILOT2_4_WAV|A_LAW" file="Pilot2_4.wav" name="R-Factor - Pilot2_4.wav A-law" count="0"/>
+		<measurement id="MES_RFACTOR_G107_PILOT2_4_WAV|A_LAW" file="Pilot2_4.wav" name="R-FactorG107 - Pilot2_4.wav A-law" count="0"/>
+		<measurement id="MES_JMOS" name="JMOS - All files" count="0"/>
+		<measurement id="MES_MOS" name="MOS - All files" count="31280" min="3.942" avg="4.432" max="4.469" conf="1.36E-003"/>
+		<measurement id="MES_PESQ" name="PESQ - All files" count="0"/>
+		<measurement id="MES_PESQ_MOS_LQO" name="PESQ (MOS-LQO) - All files" count="0"/>
+		<measurement id="MES_PSQM" name="PSQM - All files" count="31280" min="0.488" avg="0.602" max="1.783" conf="3.75E-003"/>
+		<measurement id="MES_RFACTOR" name="R-Factor - All files" count="0"/>
+		<measurement id="MES_RFACTOR_G107" name="R-FactorG107 -All files" count="0"/>
+		<measurement id="MES_USER_TIMER_0" name="User timer #0 (s)" count="0"/>
+		<measurement id="MES_DISCONNECT" name="Disconnect Delay" count="0"/>
+		<measurement id="MES_RTP_PACKETS_RX" name="Packets Received" count="0"/>
+		<measurement id="MES_RTP_PACKETS_TX" name="Packets Transmitted" count="0"/>
+		<measurement id="MES_RTP_PACKETS_TX_DROP_OOM" name="Packets Drop OOM (Out Of Memory)" count="0"/>
+		<measurement id="MES_RTP_PACKETS_TX_DROP_OLOAD" name="Packets Drop OLOAD (Over Load)" count="0"/>
+		<measurement id="MES_REG_4XX_RESPONSE_TIME" name="Reg 4XX response time" count="0"/>
+		<measurement id="MES_REG_200_RESPONSE_TIME" name="Reg 200 response time" count="0"/>
+		<measurement id="MES_REG_SUCCESS_TIME" name="Reg success time" count="0"/>
+		<measurement id="MES_REG_ATT_PER_SECOND" name="Registration attempt per second"/>
+		<measurement id="MES_REG_OK_PER_SECOND" name="Registration successes per second"/>
+		<measurement id="DELAY_VOICE_MATCHING" name="Voice Pattern Matching" count="0"/>
+		<measurement id="MES_RTP_PACKET_LOSS_RTCP" name="RTP Packet Loss (per RTCP packet)" count="0"/>
+		<measurement id="MES_GRAPH_RTP_LOSS_RATE" name="RTP Packet Loss Rate (%)" count="0"/>
+		<measurement id="DELAY_RTP_JITTER_RTCP" name="RTP Jitter (msec, per RTCP packet)" count="0"/>
+		<measurement id="MES_VPM_CONFIDENCE_FACTOR" name="VPM Factor (1.0-10.0)" count="0"/>
+	</measurements-summary>
+	<errors-summary>
+		<error id="ERR_NO_DIAL_TONE" name="No dial tone" total-count="3" color="000000"/>
+		<error id="ERR_CONT_DIAL_TONE" name="Continuous dial tone" total-count="0" color="000000"/>
+		<error id="ERR_NO_RINGBACK" name="No ringback" total-count="0" color="000000"/>
+		<error id="ERR_NO_ANSWER" name="No answer" total-count="0" color="000000"/>
+		<error id="ERR_NO_PC_FIRST" name="No path confirm (first)" total-count="34" color="000000"/>
+		<error id="ERR_NO_PC_SUBSEQ" name="No path confirm (subsq)" total-count="0" color="000000"/>
+		<error id="ERR_UNEXPECT_BUSY" name="Unexpected busy" total-count="0" color="000000"/>
+		<error id="ERR_UNEXPECT_CONG" name="Unexpected congestion" total-count="0" color="000000"/>
+		<error id="ERR_NO_EXPECT_BUSY" name="No expected busy" total-count="0" color="000000"/>
+		<error id="ERR_NO_TONE" name="No tone" total-count="0" color="000000"/>
+		<error id="ERR_NO_ENERGY" name="No energy" total-count="0" color="000000"/>
+		<error id="ERR_NO_SILENCE" name="No silence" total-count="0" color="000000"/>
+		<error id="ERR_NO_STRING_FIRST" name="No string (first digit)" total-count="0" color="000000"/>
+		<error id="ERR_NO_STRING_SUBSEQ" name="No string (subsequent)" total-count="0" color="000000"/>
+		<error id="ERR_CONN_FAILED" name="Connect failed" total-count="0" color="000000"/>
+		<error id="ERR_UNEXP_DISCONN" name="Unexpected disconnect" total-count="0" color="000000"/>
+		<error id="ERR_ABNORMAL_DISC" name="Abnormal Disconnect" total-count="0" color="000000"/>
+		<error id="ERR_BER_THRESHOLD_EXCEEDED" name="BERT exceeded" total-count="0" color="000000"/>
+		<error id="ERR_DIAL_NO_NOT_FOUND" name="Dialed number not found" total-count="0" color="000000"/>
+		<error id="ERR_FIRST_DIGIT_TIMEOUT" name="First digit time out" total-count="0" color="000000"/>
+		<error id="ERR_INT_DIGIT_TIMEOUT" name="Interdigit timeout" total-count="0" color="000000"/>
+		<error id="ERR_INSUFF_DIGITS_DIALED" name="Insufficient digits dialed" total-count="0" color="000000"/>
+		<error id="ERR_NO_DIAL_NO" name="No dialed number" total-count="0" color="000000"/>
+		<error id="ERR_NO_RESPONSE" name="No response" total-count="0" color="000000"/>
+		<error id="ERR_CHAN_BUSY" name="Channel busy" total-count="0" color="000000"/>
+		<error id="ERR_NO_MFR2_BACK_DIG_FIRST" name="No MF R2 back digit (first)" total-count="0" color="000000"/>
+		<error id="ERR_NO_MFR2_BACK_DIG_SUBS" name="No MF R2 back digit (subsq)" total-count="0" color="000000"/>
+		<error id="ERR_WRONG_MFR2_BACK_DIG" name="Wrong MF R2 back digit" total-count="0" color="000000"/>
+		<error id="ERR_NO_MFR2_SILENCE" name="No MF R2 Silence" total-count="0" color="000000"/>
+		<error id="ERR_SCRIPT_HOLDOFF" name="Script holdoff" total-count="0" color="000000"/>
+		<error id="ERR_ASSIGNMENT_FAILED" name="Assignment failed" total-count="0" color="000000"/>
+		<error id="ERR_EQBUSY" name="Equipment busy" total-count="0" color="000000"/>
+		<error id="ERR_NO_METER_TONE" name="Meter pulse not received" total-count="0" color="000000"/>
+		<error id="ERR_V5" name="V5 Error " total-count="0" color="000000"/>
+		<error id="ERR_KMS" name="VMS Kr Error " total-count="0" color="000000"/>
+		<error id="ERR_NO_INCOMING_CALL" name="No incoming call" total-count="0" color="000000"/>
+		<error id="ERR_STOPPED_CHNL" name="Stopped channel" total-count="6" color="000000"/>
+		<error id="ERR_DBG_MSG_EV" name="Debug message" total-count="0" color="000000"/>
+		<error id="ERR_CALLERID_TIMEOUT" name="Caller ID Timeout" total-count="0" color="000000"/>
+		<error id="ERR_CALLERID_PHONE_ERR" name="CID Phone number mismatch" total-count="0" color="000000"/>
+		<error id="ERR_CALLERID_PHONE_ABS" name="CID Phone number absent" total-count="0" color="000000"/>
+		<error id="ERR_CALLERID_NAME_ERR" name="CID Name mismatch" total-count="0" color="000000"/>
+		<error id="ERR_CALLERID_NAME_ABS" name="CID Name absent" total-count="0" color="000000"/>
+		<error id="ERR_CALLERID_DATE_ABS" name="CID Date absent" total-count="0" color="000000"/>
+		<error id="ERR_CALLERID_RX_ERR" name="Error while recieving Caller ID" total-count="0" color="000000"/>
+		<error id="ERR_PSQM_OVER_THRESHOLD" name="PSQM value exceeds threshold" total-count="0" color="000000"/>
+		<error id="ERR_PSQM_TOO_MANY_BADS" name="Too many bad PSQM frames" total-count="0" color="000000"/>
+		<error id="ERR_PSQM_NO_DATA" name="No PSQM data" total-count="0" color="000000"/>
+		<error id="ERR_PESQ_UNDER_THRESHOLD" name="PESQ value less than threshold" total-count="0" color="000000"/>
+		<error id="ERR_PESQ_NO_RESOURCE" name="Not enough PESQ resources" total-count="0" color="000000"/>
+		<error id="ERR_PESQ_NO_DATA" name="No PESQ data" total-count="0" color="000000"/>
+		<error id="ERR_FAXMOD_NO_RESOURCE" name="Not enough Modem resources" total-count="0" color="000000"/>
+		<error id="ERR_CODEC_NO_RESOURCE" name="No Codec resources" total-count="0" color="000000"/>
+		<error id="ERR_REGR_FAILED" name="Registration Failed" total-count="0" color="000000"/>
+		<error id="ERR_NO_PRBS" name="No PRBS" total-count="0" color="000000"/>
+		<error id="ERR_DOMAIN_NOT_FOUND" name="Domain name not resolved" total-count="0" color="000000"/>
+		<error id="ERR_NEGOTIATION_TIMEOUT" name="Negotiation failed" total-count="0" color="000000"/>
+		<error id="ERR_PAGE_DELIVERY_TIMEOUT" name="Page transfer failed" total-count="0" color="000000"/>
+		<error id="ERR_NO_PPP_CHNL_CONNECTED" name="PPP connection failed" total-count="0" color="000000"/>
+		<error id="ERR_SS7_COT_FAIL" name="SS7 COT failed" total-count="0" color="000000"/>
+		<error id="ERR_NO_MFR15_BACK_DIG" name="No MF R1.5 back digit" total-count="0" color="000000"/>
+		<error id="ERR_NO_MFR15_FORWARD_DIG" name="No MF R1.5 forward digit" total-count="0" color="000000"/>
+		<error id="ERR_WRONG_MFR15_DIG" name="Wrong MF R1.5 digit" total-count="0" color="000000"/>
+		<error id="ERR_NO_MF_R15_SILENCE" name="No MF R1.5 silence" total-count="0" color="000000"/>
+		<error id="ERR_FAX_N4" name="Fax N4 line errors" total-count="0" color="000000"/>
+		<error id="ERR_FAX_NS" name="Fax NS line errors" total-count="0" color="000000"/>
+		<error id="ERR_FAX_N23" name="Fax 23 line errors" total-count="0" color="000000"/>
+		<error id="ERR_ERL" name="ERL (0-60dB)" total-count="0" color="000000"/>
+		<error id="ERR_ERLE" name="ERLE (0-60dB)" total-count="0" color="000000"/>
+		<error id="ERR_ECHO_DELAY" name="Echo delay (10-600ms)" total-count="0" color="000000"/>
+		<error id="ERR_ECHO_TELR" name="TELR value failed G.131 recommendation" total-count="0" color="000000"/>
+		<error id="ERR_NO_DISCONNECT" name="No Disconnect" total-count="0" color="000000"/>
+		<error id="ERR_PACKETS_MINIMUM_NUMBER" name="Min number of packets" total-count="0" color="000000"/>
+		<error id="ERR_PACKETS_CHECK_INTERVAL" name="R-factorG107 threshold" total-count="0" color="000000"/>
+		<error id="ERR_PACKETS_LOST_THRESHOLD" name="Packet lost threshold" total-count="0" color="000000"/>
+		<error id="ERR_NO_STUTTER_DIAL_TONE" name="No stutter dial tone" total-count="0" color="000000"/>
+		<error id="ERR_UNEXPECTED_CID" name="Unexpected CID" total-count="0" color="000000"/>
+		<error id="ERR_NO_FSK_ALERTING_DETECTED" name="No FSK alerting detected" total-count="0" color="000000"/>
+		<error id="ERR_NO_FSK_DATA_RECEIVED" name="No FSK data received" total-count="0" color="000000"/>
+		<error id="ERR_INVALID_VMWI" name="Invalid VMWI" total-count="0" color="000000"/>
+		<error id="ERR_LUA_SCRIPT_ERROR" name="Custom LUA report event" total-count="0" color="000000"/>
+		<error id="ERR_MISMATCHED_INCOMING_RING_CADENCE" name="Mismatched Ring Cadence" total-count="0" color="000000"/>
+		<error id="ERR_NO_MATCHING_DATA" name="No Speech Matching" total-count="0" color="000000"/>
+		<error id="ERR_MEASUREMENT_THRESHOLD_EXCEED" name="Measurement threshold exceed" total-count="0" color="000000"/>
+		<error id="ERR_MAX_HIT_OVER_THRESHOLD" name="Hits Duration Exceeds Threshold" total-count="0" color="000000"/>
+		<error id="ERR_ACTION_FAILED" name="Action Failed" total-count="0" color="000000"/>
+		<error id="ERR_ACTION_TIMEOUT" name="Action Timeout" total-count="0" color="000000"/>
+		<error id="ERR_VPM_UNDER_THRESHOLD" name="VPM Factor less than threshold" total-count="0" color="000000"/>
+		<error id="ERR_NO_CED_RECEIVED" name="No CED Received" total-count="0" color="000000"/>
+		<error id="ERR_NO_T38_REINVITE" name="Expected T.38 Session Not Established" total-count="0" color="000000"/>
+		<error id="ERR_LOOPBACK_TIMEOUT" name="Loopback Timeout" total-count="0" color="000000"/>
+	</errors-summary>
+	<test-status status="DONE" start="01:26:57 PM 01/27/2017" end="01:58:27 PM 01/27/2017" elapsed="00:31:29"/>
+	<gen-events>
+		<event elapsed="---" real="1:26:57 PM Jan 27, 2017" channel="" act="" event="Test Started"/>
+		<event elapsed="000:00:17" real="1:27:15 PM" channel="An Sub 38" act="1" event="No dial tone"/>
+		<event elapsed="000:00:31" real="1:27:29 PM" channel="An Sub 38" act="1" event="No dial tone"/>
+		<event elapsed="000:00:39" real="1:27:37 PM" channel="An Sub 132" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:00:39" real="1:27:37 PM" channel="An Sub 48" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:00:43" real="1:27:41 PM" channel="An Sub 59" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:00:45" real="1:27:43 PM" channel="An Sub 38" act="1" event="No dial tone"/>
+		<event elapsed="000:00:45" real="1:27:43 PM" channel="An Sub 38" act="" event="Stopped channel"/>
+		<event elapsed="000:01:11" real="1:28:09 PM" channel="An Sub 48" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:01:15" real="1:28:13 PM" channel="An Sub 59" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:01:42" real="1:28:40 PM" channel="An Sub 48" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:01:42" real="1:28:40 PM" channel="An Sub 48" act="" event="Stopped channel"/>
+		<event elapsed="000:01:45" real="1:28:43 PM" channel="An Sub 132" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:01:46" real="1:28:44 PM" channel="An Sub 59" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:01:46" real="1:28:44 PM" channel="An Sub 59" act="" event="Stopped channel"/>
+		<event elapsed="000:02:07" real="1:29:05 PM" channel="An Sub 15" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:02:31" real="1:29:29 PM" channel="An Sub 130" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:02:52" real="1:29:50 PM" channel="An Sub 132" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:02:52" real="1:29:50 PM" channel="An Sub 132" act="" event="Stopped channel"/>
+		<event elapsed="000:05:01" real="1:31:59 PM" channel="An Sub 23" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:05:21" real="1:32:19 PM" channel="An Sub 15" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:06:20" real="1:33:18 PM" channel="An Sub 128" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:06:44" real="1:33:42 PM" channel="An Sub 144" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:06:50" real="1:33:48 PM" channel="An Sub 148" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:09:35" real="1:36:33 PM" channel="An Sub 23" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:11:16" real="1:38:14 PM" channel="An Sub 15" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:14:10" real="1:41:08 PM" channel="An Sub 23" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:15:10" real="1:42:08 PM" channel="An Sub 128" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:15:35" real="1:42:33 PM" channel="An Sub 84" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:15:40" real="1:42:38 PM" channel="An Sub 148" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:15:51" real="1:42:49 PM" channel="An Sub 15" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:16:22" real="1:43:20 PM" channel="An Sub 15" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:16:22" real="1:43:20 PM" channel="An Sub 15" act="" event="Stopped channel"/>
+		<event elapsed="000:17:08" real="1:44:06 PM" channel="An Sub 69" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:17:29" real="1:44:27 PM" channel="An Sub 144" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:18:42" real="1:45:40 PM" channel="An Sub 148" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:19:35" real="1:46:33 PM" channel="An Sub 82" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:20:21" real="1:47:19 PM" channel="An Sub 69" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:21:26" real="1:48:24 PM" channel="An Sub 23" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:24:55" real="1:51:53 PM" channel="An Sub 69" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:26:53" real="1:53:51 PM" channel="An Sub 69" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:29:28" real="1:56:26 PM" channel="An Sub 148" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:30:02" real="1:57:00 PM" channel="An Sub 23" act="1" event="No path confirm (first)"/>
+		<event elapsed="000:30:02" real="1:57:00 PM" channel="An Sub 23" act="" event="Stopped channel"/>
+		<event elapsed="000:31:29" real="1:58:27 PM Jan 27, 2017" channel="" act="" event="Test Stopped : User Stop"/>
+	</gen-events>
+	<channel-data>
+		<channel-groups-config>
+			<channel-group id="chg_1_149187e0">
+				<selected-channels>
+					<channel-side selected="Originate and terminate"/>
+					<set-channels all-channels="true"/>
+				</selected-channels>
+			</channel-group>
+		</channel-groups-config>
+		<gen-stats>
+			<stat-channels type="EANALOG" side="Subscriber" set="1" sc="EANALOG Subscriber 1">
+				<stat-totals>
+					<total script-attempts="270" script-completions="260" percent-script-completions="96.29" call-attempts="530" call-completions="520" percent-call-completions="98.11" call-attempts-per-sec="0.28" errors="10"/>
+					<orig script-attempts="270" script-completions="260" percent-script-completions="96.29" call-attempts="270" call-completions="260" percent-call-completions="96.29" call-attempts-per-sec="0.14" errors="10"/>
+					<term script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="260" call-completions="260" percent-call-completions="100" call-attempts-per-sec="0.14" errors="0"/>
+				</stat-totals>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="1"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="2"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="3"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="4"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="5"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="6"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="7"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="8"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="9"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="10"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="11"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="12"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="13"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="14"/>
+				<stat-channel script-attempts="15" script-completions="10" percent-script-completions="66.66" call-attempts="15" call-completions="10" percent-call-completions="66.66" call-attempts-per-sec="0.01" errors="5" num="15"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="10" call-completions="10" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="16"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="17"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="18"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="19"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="20"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="21"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="22"/>
+				<stat-channel script-attempts="25" script-completions="20" percent-script-completions="80" call-attempts="25" call-completions="20" percent-call-completions="80" call-attempts-per-sec="0.01" errors="5" num="23"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="20" call-completions="20" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="24"/>
+			</stat-channels>
+			<stat-channels type="EANALOG" side="Subscriber" set="2" sc="EANALOG Subscriber 2">
+				<stat-totals>
+					<total script-attempts="236" script-completions="230" percent-script-completions="97.45" call-attempts="463" call-completions="460" percent-call-completions="99.35" call-attempts-per-sec="0.25" errors="6"/>
+					<orig script-attempts="236" script-completions="230" percent-script-completions="97.45" call-attempts="233" call-completions="230" percent-call-completions="98.71" call-attempts-per-sec="0.12" errors="6"/>
+					<term script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="230" call-completions="230" percent-call-completions="100" call-attempts-per-sec="0.12" errors="0"/>
+				</stat-totals>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="26"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="27"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="28"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="29"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="30"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="31"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="32"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="33"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="34"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="35"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="36"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="37"/>
+				<stat-channel script-attempts="3" script-completions="0" percent-script-completions="0" call-attempts="0" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0" errors="3" num="38"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="0" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0" errors="0" num="39"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="40"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="41"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="42"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="43"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="44"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="45"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="46"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="47"/>
+				<stat-channel script-attempts="3" script-completions="0" percent-script-completions="0" call-attempts="3" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0.00" errors="3" num="48"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="0" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0" errors="0" num="49"/>
+			</stat-channels>
+			<stat-channels type="EANALOG" side="Subscriber" set="3" sc="EANALOG Subscriber 3">
+				<stat-totals>
+					<total script-attempts="256" script-completions="249" percent-script-completions="97.26" call-attempts="505" call-completions="498" percent-call-completions="98.61" call-attempts-per-sec="0.27" errors="7"/>
+					<orig script-attempts="256" script-completions="249" percent-script-completions="97.26" call-attempts="256" call-completions="249" percent-call-completions="97.26" call-attempts-per-sec="0.14" errors="7"/>
+					<term script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="249" call-completions="249" percent-call-completions="100" call-attempts-per-sec="0.13" errors="0"/>
+				</stat-totals>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="51"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="52"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="53"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="54"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="55"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="56"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="57"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="58"/>
+				<stat-channel script-attempts="3" script-completions="0" percent-script-completions="0" call-attempts="3" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0.00" errors="3" num="59"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="0" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0" errors="0" num="60"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="61"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="62"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="63"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="64"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="65"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="66"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="67"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="68"/>
+				<stat-channel script-attempts="25" script-completions="21" percent-script-completions="84" call-attempts="25" call-completions="21" percent-call-completions="84" call-attempts-per-sec="0.01" errors="4" num="69"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="21" call-completions="21" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="70"/>
+				<stat-channel script-attempts="22" script-completions="22" percent-script-completions="100" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="71"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="72"/>
+				<stat-channel script-attempts="22" script-completions="22" percent-script-completions="100" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="73"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="74"/>
+			</stat-channels>
+			<stat-channels type="EANALOG" side="Subscriber" set="4" sc="EANALOG Subscriber 4">
+				<stat-totals>
+					<total script-attempts="272" script-completions="270" percent-script-completions="99.26" call-attempts="542" call-completions="540" percent-call-completions="99.63" call-attempts-per-sec="0.29" errors="2"/>
+					<orig script-attempts="272" script-completions="270" percent-script-completions="99.26" call-attempts="272" call-completions="270" percent-call-completions="99.26" call-attempts-per-sec="0.14" errors="2"/>
+					<term script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="270" call-completions="270" percent-call-completions="100" call-attempts-per-sec="0.14" errors="0"/>
+				</stat-totals>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="76"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="77"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="78"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="79"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="80"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="81"/>
+				<stat-channel script-attempts="23" script-completions="22" percent-script-completions="95.65" call-attempts="23" call-completions="22" percent-call-completions="95.65" call-attempts-per-sec="0.01" errors="1" num="82"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="83"/>
+				<stat-channel script-attempts="23" script-completions="22" percent-script-completions="95.65" call-attempts="23" call-completions="22" percent-call-completions="95.65" call-attempts-per-sec="0.01" errors="1" num="84"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="85"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="86"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="87"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="88"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="89"/>
+				<stat-channel script-attempts="23" script-completions="23" percent-script-completions="100" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="90"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="23" call-completions="23" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="91"/>
+				<stat-channel script-attempts="22" script-completions="22" percent-script-completions="100" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="92"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="93"/>
+				<stat-channel script-attempts="22" script-completions="22" percent-script-completions="100" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="94"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="95"/>
+				<stat-channel script-attempts="22" script-completions="22" percent-script-completions="100" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="96"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="97"/>
+				<stat-channel script-attempts="22" script-completions="22" percent-script-completions="100" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="98"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="22" call-completions="22" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="99"/>
+			</stat-channels>
+			<stat-channels type="EANALOG" side="Subscriber" set="5" sc="EANALOG Subscriber 5">
+				<stat-totals>
+					<total script-attempts="192" script-completions="192" percent-script-completions="100" call-attempts="384" call-completions="384" percent-call-completions="100" call-attempts-per-sec="0.2" errors="0"/>
+					<orig script-attempts="192" script-completions="192" percent-script-completions="100" call-attempts="192" call-completions="192" percent-call-completions="100" call-attempts-per-sec="0.1" errors="0"/>
+					<term script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="192" call-completions="192" percent-call-completions="100" call-attempts-per-sec="0.1" errors="0"/>
+				</stat-totals>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="101"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="102"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="103"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="104"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="105"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="106"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="107"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="108"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="109"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="110"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="111"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="112"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="113"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="114"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="115"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="116"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="117"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="118"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="119"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="120"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="121"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="122"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="123"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="124"/>
+			</stat-channels>
+			<stat-channels type="EANALOG" side="Subscriber" set="6" sc="EANALOG Subscriber 6">
+				<stat-totals>
+					<total script-attempts="183" script-completions="171" percent-script-completions="93.44" call-attempts="354" call-completions="342" percent-call-completions="96.61" call-attempts-per-sec="0.19" errors="12"/>
+					<orig script-attempts="183" script-completions="171" percent-script-completions="93.44" call-attempts="183" call-completions="171" percent-call-completions="93.44" call-attempts-per-sec="0.1" errors="12"/>
+					<term script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="171" call-completions="171" percent-call-completions="100" call-attempts-per-sec="0.09" errors="0"/>
+				</stat-totals>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="126"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="127"/>
+				<stat-channel script-attempts="17" script-completions="15" percent-script-completions="88.23" call-attempts="17" call-completions="15" percent-call-completions="88.23" call-attempts-per-sec="0.01" errors="2" num="128"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="15" call-completions="15" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="129"/>
+				<stat-channel script-attempts="16" script-completions="15" percent-script-completions="93.75" call-attempts="16" call-completions="15" percent-call-completions="93.75" call-attempts-per-sec="0.01" errors="1" num="130"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="15" call-completions="15" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="131"/>
+				<stat-channel script-attempts="3" script-completions="0" percent-script-completions="0" call-attempts="3" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0.00" errors="3" num="132"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="0" call-completions="0" percent-call-completions="0" call-attempts-per-sec="0" errors="0" num="133"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="134"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="135"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="136"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="137"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="138"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="139"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="140"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="141"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="142"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="143"/>
+				<stat-channel script-attempts="17" script-completions="15" percent-script-completions="88.23" call-attempts="17" call-completions="15" percent-call-completions="88.23" call-attempts-per-sec="0.01" errors="2" num="144"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="15" call-completions="15" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="145"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="146"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="147"/>
+				<stat-channel script-attempts="18" script-completions="14" percent-script-completions="77.77" call-attempts="18" call-completions="14" percent-call-completions="77.77" call-attempts-per-sec="0.01" errors="4" num="148"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="14" call-completions="14" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="149"/>
+			</stat-channels>
+			<stat-channels type="EANALOG" side="Subscriber" set="7" sc="EANALOG Subscriber 7">
+				<stat-totals>
+					<total script-attempts="192" script-completions="192" percent-script-completions="100" call-attempts="384" call-completions="384" percent-call-completions="100" call-attempts-per-sec="0.2" errors="0"/>
+					<orig script-attempts="192" script-completions="192" percent-script-completions="100" call-attempts="192" call-completions="192" percent-call-completions="100" call-attempts-per-sec="0.1" errors="0"/>
+					<term script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="192" call-completions="192" percent-call-completions="100" call-attempts-per-sec="0.1" errors="0"/>
+				</stat-totals>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="151"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="152"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="153"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="154"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="155"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="156"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="157"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="158"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="159"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="160"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="161"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="162"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="163"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="164"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="165"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="166"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="167"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="168"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="169"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="170"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="171"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="172"/>
+				<stat-channel script-attempts="16" script-completions="16" percent-script-completions="100" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="173"/>
+				<stat-channel script-attempts="0" script-completions="0" percent-script-completions="0" call-attempts="16" call-completions="16" percent-call-completions="100" call-attempts-per-sec="0.01" errors="0" num="174"/>
+			</stat-channels>
+			<stat-cards>
+				<card sc="10.13.11.101" logical-slot="1" physical-slot="1">
+					<stat-card Incoming-messages-per-second="0" Outgoing-messages-per-second="0" Total-number-of-registered-user="0" Total-number-of-200-OK-has-been-sent="0" Total-number-of-401-Auth-has-been-sent="0" Total-number-of-407-Auth-has-been-sent="0" Total-number-of-404-Not-Found-has-been-sent="0" Total-number-of-expired-contacts="0" Total-number-of-renewed-contacts="0" Current-number-of-users-registered-Registrar="0" Number-of-DHCP-requests-issued="0" Number-of-DHCP-requests-pended="0" Number-of-DHCP-replies-negative="0" Number-of-DHCP-requests-succeeded="0" Percent-number-of-DHCP-requests-succeeded="N/A" Number-of-DHCP-request-retries="0" Number-of-DHCP-releases-issued="0" Duration-of-one-DHCP-request-transaction="0" Number-of-DHCP-configuration-failures="0" DHCP-request-rate="0" Number-of-proxy-transactions-succeeded="0" Number-of-failed-proxy-transactions="0" Number-of-proxy-transactions-in-progress="0" Number-of-proxy-successfully-completed-calls="0" Number-of-proxy-calls-in-progress="0" Average-proxy-call-length="0" Number-of-proxy-transactions-succeeded-per-sec="0.0000" Number-of-invite-msg-sent="0" Number-of-invite-msg-received="0" Number-of-invite-msg-retransmitted="0" Number-of-bye-msg-sent="0" Number-of-bye-msg-received="0" Number-of-bye-msg-retransmitted="0" Number-of-ack-msg-sent="0" Number-of-ack-msg-received="0" Number-of-other-msg-sent="0" Number-of-other-msg-received="0" Number-of-other-msg-retransmitted="0" Number-of-1xx-msg-received="0" Number-of-2xx-msg-received="0" Number-of-3xx-msg-received="0" Number-of-4xx-msg-received="0" Number-of-400-msg-received="0" Number-of-401-msg-received="0" Number-of-404-msg-received="0" Number-of-408-msg-received="0" Number-of-480-msg-received="0" Number-of-486-msg-received="0" Number-of-487-msg-received="0" Number-of-488-msg-received="0" Number-of-5xx-msg-received="0" Number-of-500-msg-received="0" Number-of-502-msg-received="0" Number-of-503-msg-received="0" Number-of-6xx-msg-received="0" Number-of-unknown-msg-received="0" DHCP-time-left-to-complete-network-cfg="N/A"/>
+				</card>
+				<card sc="10.13.11.102" logical-slot="2" physical-slot="1">
+					<stat-card Incoming-messages-per-second="0" Outgoing-messages-per-second="0" Total-number-of-registered-user="0" Total-number-of-200-OK-has-been-sent="0" Total-number-of-401-Auth-has-been-sent="0" Total-number-of-407-Auth-has-been-sent="0" Total-number-of-404-Not-Found-has-been-sent="0" Total-number-of-expired-contacts="0" Total-number-of-renewed-contacts="0" Current-number-of-users-registered-Registrar="0" Number-of-DHCP-requests-issued="0" Number-of-DHCP-requests-pended="0" Number-of-DHCP-replies-negative="0" Number-of-DHCP-requests-succeeded="0" Percent-number-of-DHCP-requests-succeeded="N/A" Number-of-DHCP-request-retries="0" Number-of-DHCP-releases-issued="0" Duration-of-one-DHCP-request-transaction="0" Number-of-DHCP-configuration-failures="0" DHCP-request-rate="0" Number-of-proxy-transactions-succeeded="0" Number-of-failed-proxy-transactions="0" Number-of-proxy-transactions-in-progress="0" Number-of-proxy-successfully-completed-calls="0" Number-of-proxy-calls-in-progress="0" Average-proxy-call-length="0" Number-of-proxy-transactions-succeeded-per-sec="0.0000" Number-of-invite-msg-sent="0" Number-of-invite-msg-received="0" Number-of-invite-msg-retransmitted="0" Number-of-bye-msg-sent="0" Number-of-bye-msg-received="0" Number-of-bye-msg-retransmitted="0" Number-of-ack-msg-sent="0" Number-of-ack-msg-received="0" Number-of-other-msg-sent="0" Number-of-other-msg-received="0" Number-of-other-msg-retransmitted="0" Number-of-1xx-msg-received="0" Number-of-2xx-msg-received="0" Number-of-3xx-msg-received="0" Number-of-4xx-msg-received="0" Number-of-400-msg-received="0" Number-of-401-msg-received="0" Number-of-404-msg-received="0" Number-of-408-msg-received="0" Number-of-480-msg-received="0" Number-of-486-msg-received="0" Number-of-487-msg-received="0" Number-of-488-msg-received="0" Number-of-5xx-msg-received="0" Number-of-500-msg-received="0" Number-of-502-msg-received="0" Number-of-503-msg-received="0" Number-of-6xx-msg-received="0" Number-of-unknown-msg-received="0" DHCP-time-left-to-complete-network-cfg="N/A"/>
+				</card>
+			</stat-cards>
+		</gen-stats>
+	</channel-data>
+	<sys-info>
+		<general-sys-info ui-ver="Abacus 6.20 r11" env-file="BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.env">
+			<sc-list>
+				<sc name="N26(T8andCpots)" address="10.13.11.101"/>
+				<sc name="N27(T8andCpots)" address="10.13.11.102"/>
+				<sc name="N28(T8andCpots)" address="10.13.11.111"/>
+			</sc-list>
+			<sc-info address="10.13.11.101">
+				<sc-versions mac="00:60:f3:30:66:c4" sn="V00QX" boot="1.01" software="" software64="6.20.11.0" sys-boot-line="ata=0,0(0,0)pcHost: e=10.13.11.101:FFFFFF00   g=10.13.11.254 s=ecg5.sh o=uto=0;bpto=1; "/>
+				<sc-card-list>
+					<card log-slot="1" phys-slot="1" hdw-type="A100"/>
+				</sc-card-list>
+			</sc-info>
+			<sc-info address="10.13.11.102">
+				<sc-versions mac="00:60:f3:30:64:13" sn="EE17C" boot="1.01" software="" software64="6.20.11.0" sys-boot-line="ata=0,0(0,0)pcHost: e=10.13.11.102:19FFFF00    g=10.13.11.254 s=ecg5.sh o=uto=0;bpto=1; "/>
+				<sc-card-list>
+					<card log-slot="2" phys-slot="1" hdw-type="A100"/>
+				</sc-card-list>
+			</sc-info>
+			<sc-info address="10.13.11.111">
+				<sc-versions mac="00:60:f3:30:66:97" sn="V00M6" boot="1.01" software="" software64="6.20.11.0" sys-boot-line="ata=0,0(0,0)pcHost: e=10.13.11.111:FFFFFF00   g=10.13.11.254 s=ecg5.sh o=uto=0;bpto=1; "/>
+				<sc-card-list>
+					<card log-slot="3" phys-slot="1" hdw-type="A100"/>
+				</sc-card-list>
+			</sc-info>
+		</general-sys-info>
+		<hw-summary>
+			<sc-card-types address="10.13.11.101">
+				<sc-card-type hdw-type="A100" sw-version="" quantity="1" channels="100"/>
+				<totals quantity="1" channels="100"/>
+			</sc-card-types>
+			<sc-card-types address="10.13.11.102">
+				<sc-card-type hdw-type="A100" sw-version="" quantity="1" channels="100"/>
+				<totals quantity="1" channels="100"/>
+			</sc-card-types>
+			<sc-card-types address="10.13.11.111">
+				<sc-card-type hdw-type="A100" sw-version="" quantity="1" channels="100"/>
+				<totals quantity="1" channels="100"/>
+			</sc-card-types>
+		</hw-summary>
+		<firmware>
+			<fw-options>
+				<card-fw-features log-slot="1" hdw-type="A100">
+					<fw-feature name="Call generation" turned="ON"/>
+					<fw-feature name="PSQM\PSQM+" turned="ON"/>
+					<fw-feature name="Feature Testing" turned="OFF"/>
+					<fw-feature name="PESQ" turned="OFF"/>
+					<fw-feature name="T.30 Fax to V.17" turned="OFF"/>
+					<fw-feature name="V.34 Analog Data Modem" turned="OFF"/>
+					<fw-feature name="Echo measurement" turned="OFF"/>
+					<fw-feature name="Impedance 600" turned="ON"/>
+					<fw-feature name="Impedance 900" turned="OFF"/>
+					<fw-feature name="Impedance Complex" turned="OFF"/>
+					<fw-feature name="Analog Synchronized calls" turned="OFF"/>
+					<fw-feature name="Voice Pattern Matching" turned="OFF"/>
+				</card-fw-features>
+				<card-fw-features log-slot="2" hdw-type="A100">
+					<fw-feature name="Call generation" turned="ON"/>
+					<fw-feature name="PSQM\PSQM+" turned="ON"/>
+					<fw-feature name="Feature Testing" turned="OFF"/>
+					<fw-feature name="PESQ" turned="OFF"/>
+					<fw-feature name="T.30 Fax to V.17" turned="OFF"/>
+					<fw-feature name="V.34 Analog Data Modem" turned="OFF"/>
+					<fw-feature name="Echo measurement" turned="OFF"/>
+					<fw-feature name="Impedance 600" turned="ON"/>
+					<fw-feature name="Impedance 900" turned="OFF"/>
+					<fw-feature name="Impedance Complex" turned="OFF"/>
+					<fw-feature name="Analog Synchronized calls" turned="OFF"/>
+					<fw-feature name="Voice Pattern Matching" turned="OFF"/>
+				</card-fw-features>
+				<card-fw-features log-slot="3" hdw-type="A100">
+					<fw-feature name="Call generation" turned="ON"/>
+					<fw-feature name="PSQM\PSQM+" turned="ON"/>
+					<fw-feature name="Feature Testing" turned="OFF"/>
+					<fw-feature name="PESQ" turned="OFF"/>
+					<fw-feature name="T.30 Fax to V.17" turned="OFF"/>
+					<fw-feature name="V.34 Analog Data Modem" turned="OFF"/>
+					<fw-feature name="Echo measurement" turned="OFF"/>
+					<fw-feature name="Impedance 600" turned="ON"/>
+					<fw-feature name="Impedance 900" turned="OFF"/>
+					<fw-feature name="Impedance Complex" turned="OFF"/>
+					<fw-feature name="Analog Synchronized calls" turned="OFF"/>
+					<fw-feature name="Voice Pattern Matching" turned="OFF"/>
+				</card-fw-features>
+			</fw-options>
+			<fw-versions>
+				<card-fw-versions log-slot="1" hdw-type="A100" sn="V00QX" hw="030-1D" card-boot="" card-app="" card-fpga="" unit-boot="" unit-app="" unit-dsp="" unit-fpga=""/>
+				<card-fw-versions log-slot="2" hdw-type="A100" sn="EE17C" hw="301-C2" card-boot="" card-app="" card-fpga="" unit-boot="" unit-app="" unit-dsp="" unit-fpga=""/>
+				<card-fw-versions log-slot="3" hdw-type="A100" sn="V00M6" hw="030-1D" card-boot="" card-app="" card-fpga="" unit-boot="" unit-app="" unit-dsp="" unit-fpga=""/>
+			</fw-versions>
+		</firmware>
+	</sys-info>
+	<protocol-settings>
+		<card-config hdw-type="A100" sc="N26(T8andCpots)" log-slot="1" phys-slot="1">
+			<circuit-type>EANALOG</circuit-type>
+			<interface>Analog</interface>
+			<signaling>Regular</signaling>
+			<side>Subscriber</side>
+			<law>u-law</law>
+			<frame/>
+			<line/>
+			<clock/>
+			<impedance>600 Ohm (Default)</impedance>
+			<circuit-name>An Sub</circuit-name>
+			<sut-config>Default Analog</sut-config>
+		</card-config>
+		<card-config hdw-type="A100" sc="N27(T8andCpots)" log-slot="2" phys-slot="1">
+			<circuit-type>EANALOG</circuit-type>
+			<interface>Analog</interface>
+			<signaling>Regular</signaling>
+			<side>Subscriber</side>
+			<law>u-law</law>
+			<frame/>
+			<line/>
+			<clock/>
+			<impedance>600 Ohm (Default)</impedance>
+			<circuit-name>An Sub</circuit-name>
+			<sut-config>Default Analog</sut-config>
+		</card-config>
+		<card-config hdw-type="A100" sc="N28(T8andCpots)" log-slot="3" phys-slot="1">
+			<circuit-type>EANALOG</circuit-type>
+			<interface>Analog</interface>
+			<signaling>Regular</signaling>
+			<side>Subscriber</side>
+			<law>u-law</law>
+			<frame/>
+			<line/>
+			<clock/>
+			<impedance>600 Ohm (Default)</impedance>
+			<circuit-name>An Sub</circuit-name>
+			<sut-config>Default Analog</sut-config>
+		</card-config>
+	</protocol-settings>
+	<partition-and-timing-settings test-duration="For 1 hours 0 min" map="Disabled">
+		<set-list type="EANALOG" side="Subscriber">
+			<set num="1" type="EANALOG" side="Subscriber">
+				<active>true</active>
+				<set-association>
+					<from>1</from>
+					<to>24</to>
+					<total>24</total>
+					<configuration>OTOT</configuration>
+					<path-confirmation>Default</path-confirmation>
+					<links>Own</links>
+					<toggle>false</toggle>
+					<trunking/>
+				</set-association>
+				<set-call-timing>
+					<start-time>0</start-time>
+					<start-to-start>3</start-to-start>
+					<call-length>60</call-length>
+					<inter-call>10</inter-call>
+					<call-to-call>12</call-to-call>
+					<call-load-profile>Call schedule (per channel)</call-load-profile>
+				</set-call-timing>
+				<set-scripts>
+					<script-originate>A calls B (DTMF) and confirms for Call Length</script-originate>
+					<script-terminate>Default</script-terminate>
+					<script-comments>N26S1-A2Combo</script-comments>
+				</set-scripts>
+				<set-protocols>
+					<voip-protocol>Default</voip-protocol>
+					<fax-protocol>None</fax-protocol>
+					<modem-protocol>None</modem-protocol>
+				</set-protocols>
+				<set-endpoints>
+					<ca-certificate/>
+					<client-certificate/>
+					<dhcp>false</dhcp>
+					<proxy-registrar>Default</proxy-registrar>
+				</set-endpoints>
+				<set-phones/>
+			</set>
+			<set num="2" type="EANALOG" side="Subscriber">
+				<active>true</active>
+				<set-association>
+					<from>26</from>
+					<to>49</to>
+					<total>24</total>
+					<configuration>OTOT</configuration>
+					<path-confirmation>Default</path-confirmation>
+					<links>Own</links>
+					<toggle>false</toggle>
+					<trunking/>
+				</set-association>
+				<set-call-timing>
+					<start-time>3</start-time>
+					<start-to-start>1</start-to-start>
+					<call-length>60</call-length>
+					<inter-call>10</inter-call>
+					<call-to-call>12</call-to-call>
+					<call-load-profile>Call schedule (per channel)</call-load-profile>
+				</set-call-timing>
+				<set-scripts>
+					<script-originate>A calls B (DTMF) and confirms for Call Length</script-originate>
+					<script-terminate>Default</script-terminate>
+					<script-comments>N26S2-Rpots</script-comments>
+				</set-scripts>
+				<set-protocols>
+					<voip-protocol>Default</voip-protocol>
+					<fax-protocol>None</fax-protocol>
+					<modem-protocol>None</modem-protocol>
+				</set-protocols>
+				<set-endpoints>
+					<ca-certificate/>
+					<client-certificate/>
+					<dhcp>false</dhcp>
+					<proxy-registrar>Default</proxy-registrar>
+				</set-endpoints>
+				<set-phones/>
+			</set>
+			<set num="3" type="EANALOG" side="Subscriber">
+				<active>true</active>
+				<set-association>
+					<from>51</from>
+					<to>74</to>
+					<total>24</total>
+					<configuration>OTOT</configuration>
+					<path-confirmation>Default</path-confirmation>
+					<links>Own</links>
+					<toggle>false</toggle>
+					<trunking/>
+				</set-association>
+				<set-call-timing>
+					<start-time>6</start-time>
+					<start-to-start>3</start-to-start>
+					<call-length>60</call-length>
+					<inter-call>10</inter-call>
+					<call-to-call>12</call-to-call>
+					<call-load-profile>Call schedule (per channel)</call-load-profile>
+				</set-call-timing>
+				<set-scripts>
+					<script-originate>A calls B (DTMF) and confirms for Call Length</script-originate>
+					<script-terminate>Default</script-terminate>
+					<script-comments>N26S3-48p</script-comments>
+				</set-scripts>
+				<set-protocols>
+					<voip-protocol>Default</voip-protocol>
+					<fax-protocol>None</fax-protocol>
+					<modem-protocol>None</modem-protocol>
+				</set-protocols>
+				<set-endpoints>
+					<ca-certificate/>
+					<client-certificate/>
+					<dhcp>false</dhcp>
+					<proxy-registrar>Default</proxy-registrar>
+				</set-endpoints>
+				<set-phones/>
+			</set>
+			<set num="4" type="EANALOG" side="Subscriber">
+				<active>true</active>
+				<set-association>
+					<from>76</from>
+					<to>99</to>
+					<total>24</total>
+					<configuration>OTOT</configuration>
+					<path-confirmation>Default</path-confirmation>
+					<links>Own</links>
+					<toggle>false</toggle>
+					<trunking/>
+				</set-association>
+				<set-call-timing>
+					<start-time>9</start-time>
+					<start-to-start>3</start-to-start>
+					<call-length>60</call-length>
+					<inter-call>10</inter-call>
+					<call-to-call>12</call-to-call>
+					<call-load-profile>Call schedule (per channel)</call-load-profile>
+				</set-call-timing>
+				<set-scripts>
+					<script-originate>A calls B (DTMF) and confirms for Call Length</script-originate>
+					<script-terminate>Default</script-terminate>
+					<script-comments>N26S4-48p</script-comments>
+				</set-scripts>
+				<set-protocols>
+					<voip-protocol>Default</voip-protocol>
+					<fax-protocol>None</fax-protocol>
+					<modem-protocol>None</modem-protocol>
+				</set-protocols>
+				<set-endpoints>
+					<ca-certificate/>
+					<client-certificate/>
+					<dhcp>false</dhcp>
+					<proxy-registrar>Default</proxy-registrar>
+				</set-endpoints>
+				<set-phones/>
+			</set>
+			<set num="5" type="EANALOG" side="Subscriber">
+				<active>true</active>
+				<set-association>
+					<from>101</from>
+					<to>124</to>
+					<total>24</total>
+					<configuration>OTOT</configuration>
+					<path-confirmation>Default</path-confirmation>
+					<links>Own</links>
+					<toggle>false</toggle>
+					<trunking/>
+				</set-association>
+				<set-call-timing>
+					<start-time>0</start-time>
+					<start-to-start>3</start-to-start>
+					<call-length>60</call-length>
+					<inter-call>45</inter-call>
+					<call-to-call>60</call-to-call>
+					<call-load-profile>Call schedule (per channel)</call-load-profile>
+				</set-call-timing>
+				<set-scripts>
+					<script-originate>A calls B (DTMF) and confirms for Call Length</script-originate>
+					<script-terminate>Default</script-terminate>
+					<script-comments>N27S1-V2Combo</script-comments>
+				</set-scripts>
+				<set-protocols>
+					<voip-protocol>Default</voip-protocol>
+					<fax-protocol>None</fax-protocol>
+					<modem-protocol>None</modem-protocol>
+				</set-protocols>
+				<set-endpoints>
+					<ca-certificate/>
+					<client-certificate/>
+					<dhcp>false</dhcp>
+					<proxy-registrar>Default</proxy-registrar>
+				</set-endpoints>
+				<set-phones/>
+			</set>
+			<set num="6" type="EANALOG" side="Subscriber">
+				<active>true</active>
+				<set-association>
+					<from>126</from>
+					<to>149</to>
+					<total>24</total>
+					<configuration>OTOT</configuration>
+					<path-confirmation>Default</path-confirmation>
+					<links>Own</links>
+					<toggle>false</toggle>
+					<trunking/>
+				</set-association>
+				<set-call-timing>
+					<start-time>3</start-time>
+					<start-to-start>3</start-to-start>
+					<call-length>60</call-length>
+					<inter-call>45</inter-call>
+					<call-to-call>60</call-to-call>
+					<call-load-profile>Call schedule (per channel)</call-load-profile>
+				</set-call-timing>
+				<set-scripts>
+					<script-originate>A calls B (DTMF) and confirms for Call Length</script-originate>
+					<script-terminate>Default</script-terminate>
+					<script-comments>N27S2</script-comments>
+				</set-scripts>
+				<set-protocols>
+					<voip-protocol>Default</voip-protocol>
+					<fax-protocol>None</fax-protocol>
+					<modem-protocol>None</modem-protocol>
+				</set-protocols>
+				<set-endpoints>
+					<ca-certificate/>
+					<client-certificate/>
+					<dhcp>false</dhcp>
+					<proxy-registrar>Default</proxy-registrar>
+				</set-endpoints>
+				<set-phones/>
+			</set>
+			<set num="7" type="EANALOG" side="Subscriber">
+				<active>true</active>
+				<set-association>
+					<from>151</from>
+					<to>174</to>
+					<total>24</total>
+					<configuration>OTOT</configuration>
+					<path-confirmation>Default</path-confirmation>
+					<links>Own</links>
+					<toggle>false</toggle>
+					<trunking/>
+				</set-association>
+				<set-call-timing>
+					<start-time>6</start-time>
+					<start-to-start>3</start-to-start>
+					<call-length>60</call-length>
+					<inter-call>45</inter-call>
+					<call-to-call>60</call-to-call>
+					<call-load-profile>Call schedule (per channel)</call-load-profile>
+				</set-call-timing>
+				<set-scripts>
+					<script-originate>A calls B (DTMF) and confirms for Call Length</script-originate>
+					<script-terminate>Default</script-terminate>
+					<script-comments>N27S3</script-comments>
+				</set-scripts>
+				<set-protocols>
+					<voip-protocol>Default</voip-protocol>
+					<fax-protocol>None</fax-protocol>
+					<modem-protocol>None</modem-protocol>
+				</set-protocols>
+				<set-endpoints>
+					<ca-certificate/>
+					<client-certificate/>
+					<dhcp>false</dhcp>
+					<proxy-registrar>Default</proxy-registrar>
+				</set-endpoints>
+				<set-phones/>
+			</set>
+		</set-list>
+	</partition-and-timing-settings>
+</report>
+

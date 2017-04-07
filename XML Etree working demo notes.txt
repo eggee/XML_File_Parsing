@@ -1,0 +1,26 @@
+Find help here:
+http://eli.thegreenplace.net/2012/03/15/processing-xml-in-python-with-elementtree
+
+Use this XML file:
+C:/Abacus_Results/BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml 
+Use this 'value' to query for:
+N26S3-48p
+
+>>> tree = ET.parse("C:/Abacus_Results/BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml")
+>>> root = tree.getroot()
+
+>>> for child in root:
+...     print child.tag, child.attrib
+...     
+header {'date': '2016-06-03'}
+report-title {'company': 'Adtran, Inc.', 'test-title': 'iTest Generated Test', 'print-on-every-page': 'false', 'logo-type': 'default'}
+footer {'text': 'BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects_001/footer.txt'}
+measurements-summary {}
+errors-summary {}
+test-status {'status': 'DONE', 'start': '03:30:22 PM 06/03/2016', 'end': '03:33:37 PM 06/03/2016', 'elapsed': '00:03:15'}
+gen-events {}
+channel-data {}
+sys-info {}
+protocol-settings {}
+partition-and-timing-settings {'test-duration': 'For 1 hours 0 min', 'map': 'Disabled'}
+>>> 
