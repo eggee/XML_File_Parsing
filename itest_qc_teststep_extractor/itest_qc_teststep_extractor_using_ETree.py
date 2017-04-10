@@ -12,6 +12,9 @@ tree = etree.parse(file_to_parse)
 #tree = etree.parse("025G1_Cross-Slot_LAG_2x10Gig_to_Cisco.fftc")
 catalogue = tree.getroot()
 
+filename = ('C:/temp/%s.txt' % test_case)
+f = open(filename, 'a')
+f.truncate()
 for qualityCenterStepInfo in catalogue.iter("qualityCenterStepInfo"):
     try:
         stepname = qualityCenterStepInfo.get('stepName')
@@ -30,6 +33,14 @@ for qualityCenterStepInfo in catalogue.iter("qualityCenterStepInfo"):
     print "Description:\n %s" % description
     print "Expected Result:\n %s \n" % expectedResult
 
+    # f.write(stepname + description + expectedResult)
+    f.write("\n")
+    f.write ("Step Name: \n" +  stepname + "\n")
+    f.write ("Description: \n" + description + "\n")
+    f.write ("Expected: \n" + expectedResult + "\n")
+    # f.write("Step Name:\n" %s "Description:\n" %s "Expected Result:\n \n" %s) % (stepname, description, expectedResult)
+
+f.close()
 
 
 
