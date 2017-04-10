@@ -4,7 +4,7 @@ import os
 __author__ = 'teggenbe'
 from lxml import etree, objectify
 
-parser = etree.XMLParser(remove_blank_text=True)
+#parser = etree.XMLParser(remove_blank_text=True)
 path = "C:/iTest_4.0/CND_TA5000_BBDLC_Ethernet/BBDLC Ethernet/Voice/Bulk_Call_(Parsed)_Sip_MGCP_GR303/"
 # test_case = "n16s2-GR303-V2Combo-BulkCall-via-SM025Gx.fftc"
 file_listing = os.listdir(path)
@@ -12,13 +12,12 @@ file_listing = os.listdir(path)
 for each_file in file_listing:
     file_to_parse = path + each_file
     tree = etree.parse(file_to_parse)
-    #tree = etree.parse("025G1_Cross-Slot_LAG_2x10Gig_to_Cisco.fftc")
-    catalogue = tree.getroot()
+    itest_test_case = tree.getroot()
 
     filename = ('C:/temp/%s.txt' % each_file)
     f = open(filename, 'a')
     f.truncate()
-    for qualityCenterStepInfo in catalogue.iter("qualityCenterStepInfo"):
+    for qualityCenterStepInfo in itest_test_case.iter("qualityCenterStepInfo"):
         try:
             stepname = qualityCenterStepInfo.get('stepName')
         except AttributeError:
@@ -36,12 +35,10 @@ for each_file in file_listing:
         print "Description:\n %s" % description
         print "Expected Result:\n %s \n" % expectedResult
 
-        # f.write(stepname + description + expectedResult)
         f.write("\n")
         f.write ("Step Name: \n" +  stepname + "\n")
         f.write ("Description: \n" + description + "\n")
         f.write ("Expected: \n" + expectedResult + "\n")
-        # f.write("Step Name:\n" %s "Description:\n" %s "Expected Result:\n \n" %s) % (stepname, description, expectedResult)
 
 f.close()
 
