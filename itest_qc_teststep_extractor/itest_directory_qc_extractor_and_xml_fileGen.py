@@ -9,17 +9,22 @@ path = "C:/iTest_4.0/CND_TA5000_BBDLC_Ethernet/BBDLC Ethernet/Voice/Bulk_Call_(P
 #get a list of all the files in that directory (assumes they will be *.fftc files only)
 file_listing = os.listdir(path)
 
+#for each file in the given directory, parse it to search for 'qualitycenter' step information
 for each_file in file_listing:
     file_to_parse = path + each_file
     tree = etree.parse(file_to_parse)
     itest_test_case = tree.getroot()
-    #create a new *.txt file using the same name from the *.fftc filename
-    filename = ('C:/temp/%s.xml' % each_file)
-    f = open(filename, 'a')
+    #create a new *.xml file using the same name from the *.fftc new_file
+    file_name = each_file.split('.')
+    file_name = file_name[0]
+    new_file = ('C:/temp/%s.xml' % file_name)
+    f = open(new_file, 'a')
     f.truncate()    #  if re-running, delete everything in the old file.
     #Parse each 'quality center' step and get the relevant 'step' information
-    # open the xml tage for 'qc_steps'
-    f.write("<qc_steps >")
+    # write the opening xml tag for 'qc_steps'
+    f.write("<qc_steps >\n")
+
+    #TODO: check to see if attribute is 'true', otherwise, skip getting the qc info for that iteration
     for qualityCenterStepInfo in itest_test_case.iter("qualityCenterStepInfo"):
         try:
             stepname = qualityCenterStepInfo.get('stepName')
@@ -47,7 +52,7 @@ for each_file in file_listing:
         f.write("\t</Step>\n")
     #close the xml section for 'qc_steps'
     f.write("</qc_steps >")
-f.close()
+    f.close()
 
 
 

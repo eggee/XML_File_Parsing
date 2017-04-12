@@ -13,7 +13,7 @@ for each_file in file_listing:
     file_to_parse = path + each_file
     tree = etree.parse(file_to_parse)
     itest_test_case = tree.getroot()
-    #create a new *.txt file using the same name from the *.fftc filename
+    #create a new *.txt file using the same name from the *.fftc new_file
     filename = ('C:/temp/%s.txt' % each_file)
     f = open(filename, 'a')
     f.truncate()    #  if re-running, delete everything in the old file.
