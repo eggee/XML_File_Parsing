@@ -12,7 +12,7 @@ for qualityCenterStepInfo in qcstepinfo:
     # stepname = qualityCenterStepInfo.getElementsByTagName("stepName")[0].firstChild.data
     stepname = qualityCenterStepInfo._attrs[u'stepName'].nodeValue
     description = qualityCenterStepInfo.getElementsByTagName("description")[0].firstChild.data
-    expectedResult = qualityCenterStepInfo.getElementsByTagName("expectedResult")[0].firstChild.data
+    expectedResult = qualityCenterStepInfo.getElementsByTagName("expected_result")[0].firstChild.data
 
     print "Step Name:\n %s" % stepname
     print "Description:\n %s" % description

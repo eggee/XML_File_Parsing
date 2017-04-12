@@ -14,10 +14,12 @@ for each_file in file_listing:
     tree = etree.parse(file_to_parse)
     itest_test_case = tree.getroot()
     #create a new *.txt file using the same name from the *.fftc filename
-    filename = ('C:/temp/%s.txt' % each_file)
+    filename = ('C:/temp/%s.xml' % each_file)
     f = open(filename, 'a')
     f.truncate()    #  if re-running, delete everything in the old file.
     #Parse each 'quality center' step and get the relevant 'step' information
+    # open the xml tage for 'qc_steps'
+    f.write("<qc_steps >")
     for qualityCenterStepInfo in itest_test_case.iter("qualityCenterStepInfo"):
         try:
             stepname = qualityCenterStepInfo.get('stepName')
@@ -28,20 +30,23 @@ for each_file in file_listing:
         except AttributeError:
             description = "BLANK"
         try:
-            expectedResult = qualityCenterStepInfo.find("expected_result").text
+            expected_result = qualityCenterStepInfo.find("expected_result").text
         except AttributeError:
-            expectedResult = "BLANK"
+            expected_result = "BLANK"
 
-        #optionally, print step info to python console
-        print "Step Name:\n %s" % stepname
-        print "Description:\n %s" % description
-        print "Expected Result:\n %s \n" % expectedResult
-        #write step info. to new file
-        f.write("\n")
-        f.write ("Step Name: \n" +  stepname + "\n")
-        f.write ("Description: \n" + description + "\n")
-        f.write ("Expected: \n" + expectedResult + "\n")
-
+        #write the step information in an XML format
+        stepname = "  <step name =\"Name\">%s\"</step>" % stepname
+        description = "  <step name =\"Description\">%s</step>" % description
+        expected = "  <step name =\"Expected\">%s</step>" % expected_result
+        #write to file
+        f.write("\t<Step>\n")
+        f.write("\t  <step name =\"number\">1</step>\n")
+        f.write("\t" + stepname + "\n")
+        f.write("\t" + description + "\n")
+        f.write("\t" + expected + "\n")
+        f.write("\t</Step>\n")
+    #close the xml section for 'qc_steps'
+    f.write("</qc_steps >")
 f.close()
 
 

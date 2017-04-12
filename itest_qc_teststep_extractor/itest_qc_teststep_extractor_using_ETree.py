@@ -25,7 +25,7 @@ for qualityCenterStepInfo in catalogue.iter("qualityCenterStepInfo"):
     except AttributeError:
         description = "BLANK"
     try:
-        expectedResult = qualityCenterStepInfo.find("expectedResult").text
+        expectedResult = qualityCenterStepInfo.find("expected_result").text
     except AttributeError:
         expectedResult = "BLANK"
 
@@ -33,12 +33,12 @@ for qualityCenterStepInfo in catalogue.iter("qualityCenterStepInfo"):
     print "Description:\n %s" % description
     print "Expected Result:\n %s \n" % expectedResult
 
-    # f.write(stepname + description + expectedResult)
+    # f.write(stepname + description + expected_result)
     f.write("\n")
     f.write ("Step Name: \n" +  stepname + "\n")
     f.write ("Description: \n" + description + "\n")
     f.write ("Expected: \n" + expectedResult + "\n")
-    # f.write("Step Name:\n" %s "Description:\n" %s "Expected Result:\n \n" %s) % (stepname, description, expectedResult)
+    # f.write("Step Name:\n" %s "Description:\n" %s "Expected Result:\n \n" %s) % (stepname, description, expected_result)
 
 f.close()
 
