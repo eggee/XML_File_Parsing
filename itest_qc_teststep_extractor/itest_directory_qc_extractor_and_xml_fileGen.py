@@ -1,5 +1,5 @@
-# procedure to read an iTest *.fftc test case and extract/display all the QualityCenter
-# test step text.
+# procedure to read a directory in iTest (*.fftc test cases) and extract/display all the QualityCenter
+# test step information and write each to it's own *.xml file.
 import os
 __author__ = 'teggenbe'
 from lxml import etree, objectify
