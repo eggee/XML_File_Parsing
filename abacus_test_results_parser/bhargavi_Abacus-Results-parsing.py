@@ -1,10 +1,6 @@
 
 import xml.etree.ElementTree as ET
 import sys
-
-#Use these command line parameters in the initial test call
-#C:/Abacus_Results/BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml N26S3-48p
-
 argCount = len(sys.argv)
 if argCount == 3:
     Result_XML = sys.argv[1]
@@ -15,17 +11,23 @@ try:
     XML = open(Result_XML)
 except IOError:
     sys.exit("The file does not exist, exiting gracefully")
+f = open(Result_XML,'r')
+x = f.readlines()
+y = x[:x.index('\t</partition-and-timing-settings>\n')+1]
+f2 = open(Result_XML, 'w')
+for z in y:
+    f2.write(str(z))
+f2.write("</report>")
+f2.close()
 
 set_num = 0
 tree = ET.parse(Result_XML)
 root = tree.getroot()
 
-# GETS THE 'set #' FOR THE GIVEN Script-Name
 for neighbor in root.iter('set'):
     if neighbor[3][2].text == script:
         set_num = neighbor.attrib.values()[0]
 
-#CHECK IF 'set num' WAS UPDATED OR NOT
 if set_num == 0 :
     sys.exit("Given Script is not found in XML file, Hence exiting gracefully")
 
@@ -33,7 +35,6 @@ if set_num == '':
     sys.exit("Set Number is not defined in given Script,Hence Exiting gracefully")
 
 neighbor.attrib.values()[1] = 0
-#Search the 'root' for a tag called 'test-status'
 for neighbor in root.iter('test-status'):
     test_status = neighbor.attrib
     start_time_with_space = test_status.get('start')
