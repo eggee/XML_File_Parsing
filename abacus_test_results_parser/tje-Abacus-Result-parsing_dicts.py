@@ -7,6 +7,11 @@
 import xml.etree.ElementTree as ET
 import sys
 
+# Give the Abacus Results file path/name that is in the xml format
+Result_XML = "BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml"
+# Give the 'script name' (from the environment partition&timing table) for which to parse for results
+script = "N26S3-48p"
+
 def open_the_xml_report(Result_XML):
     tree = ET.parse(Result_XML)
     root = tree.getroot()
@@ -65,8 +70,7 @@ def get_script_results_info(set_num, root):
 
 #MAIN
 def main():
-    Result_XML = "BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml"
-    script = "N26S3-48p"
+
     root = open_the_xml_report(Result_XML)
     set_num = get_the_setnum(root, script)
 
