@@ -29,8 +29,9 @@ def get_the_setnum(root, script):
     return set_num
 
 def get_test_run_info(root):
-    #Search the 'root' for a tag called 'test-status'
+    #initialize a local dictionary
     dict = {}
+    #Search the 'root' for a tag called 'test-status'
     for neighbor in root.iter('test-status'):
         test_status = neighbor.attrib
         start_time_with_space = test_status.get('start')
@@ -66,7 +67,6 @@ def get_script_results_info(set_num, root):
 def main():
     Result_XML = "BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml"
     script = "N26S3-48p"
-    CC = float
     root = open_the_xml_report(Result_XML)
     set_num = get_the_setnum(root, script)
 
@@ -74,7 +74,7 @@ def main():
     print "\n *** Abacus Test Run Info. for %s ***\n" % script
     print "Start Time:", run_info['start_time']
     print "Stop Time:", run_info['stop_time']
-    print "Run  Time:\n", run_info['run_time']
+    print "Run  Time:", run_info['run_time']
 
     results_info = get_script_results_info(set_num, root)
     print "\n *** Results Info. for %s ***\n" % script
