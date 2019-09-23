@@ -8,7 +8,7 @@ itest_file = "025G1_Cross-Slot_LAG_2x10Gig_to_Cisco.fftc"
 #create a new *.xml file using the same name from the *.fftc new_file
 file_name = itest_file.split('.')
 file_name = file_name[0]
-new_file = ('C:/temp/%s.xml' % file_name)
+new_file = ('%s.xml' % file_name)
 f = open(new_file, 'a')
 f.truncate()    #  if re-running, delete everything in the old file.
 #Parse each 'quality center' step and get the relevant 'step' information
