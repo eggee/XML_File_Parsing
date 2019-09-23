@@ -22,20 +22,21 @@ set_num = 0
 tree = ET.parse(Result_XML)
 root = tree.getroot()
 
-#Gets the Set# for the given Script Name
-for neighbor in root.iter('set'):
-    if neighbor[3][2].text == script:
-        set_num = neighbor.attrib.values()[0]
-
-if set_num == 0 :
-    sys.exit("Given Script is not found in XML file, Hence exiting gracefully")
-
-if set_num == '':
-    sys.exit("Set Number is not defined in given Script,Hence Exiting gracefully")
+#tree._root._children[0].attrib['serial_number_string']
+# Gets the Set# for the given Script Name
+# for neighbor in root.iter('serial_number_string'):
+#     if neighbor[3][2].text == script:
+#         set_num = neighbor.attrib.values()[0]
+#
+# if set_num == 0 :
+#     sys.exit("Given Script is not found in XML file, Hence exiting gracefully")
+#
+# if set_num == '':
+#     sys.exit("Set Number is not defined in given Script,Hence Exiting gracefully")
 
 neighbor.attrib.values()[1] = 0
-for neighbor in root.iter('stat-channels'):
-    if neighbor.attrib.values()[1] == set_num:
+for neighbor in root.iter('id'):
+    if neighbor.attrib.values()[1] == ont_2:
         total = neighbor[0][0].attrib
         CC = total.get('percent-call-completions')
         SC = total.get("percent-script-completions")
