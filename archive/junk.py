@@ -16,7 +16,7 @@ def get_test_run_info(Result_XML):
 
 
 
-Result_XML = "C:/Abacus_Results/BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml"
+Result_XML = "BBDLC_CPOTS_BulkCall_LoadTest_via_CrossConnects.xml"
 script = "N26S3-48p"
 x = get_test_run_info(Result_XML)
 

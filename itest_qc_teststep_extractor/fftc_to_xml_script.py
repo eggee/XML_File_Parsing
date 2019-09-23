@@ -124,17 +124,11 @@ class FftcToXml:
 
 
 if __name__ == '__main__':
-    """
-
-    """
-
-    # Hard-coded name and path for development process.
+     # Hard-coded name and path for development process.
     name = "n16s1-GR303-A2Combo-BulkCall-via-SM025Gx.fftc"  # Disable if using name from argparse.
     # The path will search the topologies folder for the file.
     path = os.getcwd()
 
-    # initiate an instance
+    # initiate a CLASS instance
     instance = FftcToXml(name, path)
-
-
     instance.parse()
